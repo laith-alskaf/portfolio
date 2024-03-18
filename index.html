@@ -36,7 +36,7 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
-    <style>
+<!--     <style>
     :root {
 	    --yellow: #5194C0;
 	    --red: #2D6AAB;
@@ -96,35 +96,8 @@
     		transform: scale(1.2);
     	}
     }
-  </style>
-</head>
-<body>
- <div class="container" id="loading">
-  <div class="yellow"></div>
-  <div class="red"></div>
-  <div class="blue"></div>
-  <div class="violet"></div>
-</div>
-  <script>
-    window.addEventListener('load', function(ev) {
-      var loading = document.querySelector('#loading');
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            loading.remove();
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
-<!--    </script>
-  <div id="loading">
-<style>
+  </style> -->
+	<style>
   body {
     inset: 0;
     overflow: hidden;
@@ -168,14 +141,42 @@
 
   @keyframes zooooom {
     from {
-      transform: scale(1)
+      transform: scale(0.5)
     }
 
     to {
-      transform: scale(10)
+      transform: scale(5)
     }
   }
 </style>
+</head>
+<body>
+<!--  <div class="container" id="loading">
+  <div class="yellow"></div>
+  <div class="red"></div>
+  <div class="blue"></div>
+  <div class="violet"></div>
+</div> -->
+<!--   <script>
+    window.addEventListener('load', function(ev) {
+      var loading = document.querySelector('#loading');
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            loading.remove();
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script> -->
+   </script>
+  <div id="loading">
+
 <img src="assets/assets/images/image.png" alt="Loading indicator..." /></div>
 <script>
 window.addEventListener('load', function () {
@@ -214,6 +215,6 @@ window.addEventListener('load', function () {
         }
       });
     });
-  </script> -->
+  </script>
 </body>
 </html>
