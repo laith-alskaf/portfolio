@@ -1,0 +1,186 @@
+{
+  "projects": [
+    {
+      "name": "Food Ordering",
+      "description": "The Flutter app provides a login and user registration interface as well as displaying the menu and its details. The application allows handling of the API for a large number of login and registration operations, and retrieving readable nutritional data in the main user interface (Home View).Login interface: Users can log in using authorized data such as username and password, and verify the validity of the information entered through the provided API. Registration interface: Allows users to create a new account using authorized data such as email and password, and validate the information entered through the provided API. View the food menu: The application displays the menu of food available to users, and displays food details such as name, picture, description, and price. Interacting with the API: The application interacts with the API with small amounts of registration and login processes, retrieving food data and displaying it in the main UI.",
+      "image": "assets/images/Logo.svg",
+      "link": "https://github.com/laith-alskaf/food_ordering"
+    },
+    {
+      "name": "Car Service",
+      "description": "The 'Maintenance and Parking of Cars Art' application is a digital meal system designed to simplify and manage the operations of parking cars and maintenance services. The application relies on modern interfaces and basic technologies for the basics of an effective user base. The application contains two main sections: the (User) and (Admin)",
+      "image": "assets/images/Logo.svg",
+      "link": "https://github.com/laith-alskaf/car_service"
+    },
+    {
+      "name": "Team Management App",
+      "description": "is an application designed to streamline employee and project management within a company. It offers features such as project assignment, task tracking, and real-time communication. However, please note that as the project is proprietary to a specific company, the code cannot be publicly shared. You can provide a brief description and create a video showcasing the applications functionality without disclosing any sensitive information or code.",
+      "image": "assets/images/Logo.svg",
+      "link": ""
+    },
+    {
+      "name": "iDBook_agent",
+      "description": "is a payment activation application that utilizes QR code scanning. It allows users to activate plans by scanning the corresponding QR codes. The app includes a history feature to track paid plans and requires location activation and sufficient balance. It also features a login page and sends SMS messages for convenient mobile access.",
+      "image": "assets/images/recipe.png",
+      "link": ""
+    },
+    {
+      "name": "iDBook",
+      "description": "",
+      "image": "assets/images/recipe.png",
+      "link": ""
+    },
+    {
+      "name": "Darrebni National",
+      "description": "is a digital platform for Syrian students preparing for the National Unified Exam. It offers a unified study resource, question banks, and accurate answers. It simplifies exam preparation, provides self-assessment, and boosts confidence.",
+      "image": "assets/images/recipe.png",
+      "link": "https://github.com/laith-alskaf/darrebni_national-Project"
+    },
+    {
+      "name": "Hadith",
+      "description": "''Company in Bangladesh. The project involves a user interface that displays conversations in both Arabic and Bengali languages, including information such as the speaker's name, the number of the conversation, and more. SQLFlite package in Flutter was used to retrieve data from a .db file, which serves as the database. The data is then displayed using the GetX package, which facilitates state management and navigation within the application. The provided design was implemented with precision, ensuring proper formatting and display of data in the specified languages. The project is characterized by its simplicity, focusing on essential functionalities for displaying conversations and related information.''",
+      "image": "assets/images/recipe.png",
+      "link": "https://github.com/laith-alskaf/hadith"
+    },
+    {
+      "name": "BetterMe",
+      "description": "Flutter Health App: A comprehensive interface for improving personal health. Health tips, valuable information, medication alerts, ideal weight and BMI calculations, frequently asked questions and the ability to ask personal questions for ChatGPT 3.5. The app aims to promote health awareness and improve the overall wellness of users.",
+      "image": "assets/images/BetterMe.jpg",
+      "link": "https://github.com/laith-alskaf/better-me"
+    },
+    {
+      "name": "View Posts",
+      "description": "A Facebook-like Flutter application that works with the API to retrieve and display posts, publish new posts, and delete them with simple interfaces.",
+      "image": "assets/images/alarm.jpg",
+      "link": "https://github.com/laith-alskaf/view_posts"
+    },
+    {
+      "name": "Simple Store App",
+      "description": "A store app built with Flutter to make mobile shopping easier. The application allows users to browse and purchase different products by category, and add them to the shopping cart. Users can manage the products in the cart and calculate the final price which includes delivery costs and other extras. The application features an attractive design and ease of use",
+      "image": "assets/images/alarm.jpg",
+      "link": "https://github.com/laith-alskaf/simple_store_app"
+    },
+    {
+      "name": "ChatGpt",
+      "description": "A chat application powered by Flutter that includes a simple chat interface with artificial intelligence. ChatGPT 3.5. Messages are saved and can be deleted.",
+      "image": "assets/images/alarm.jpg",
+      "link": "https://github.com/laith-alskaf/chat_gpt"
+    },
+    {
+      "name": "company-profile-app(task)",
+      "description": "The app showcases the companies departments, their descriptions, company information, and communication/job application features. It was part of your application assessment, demonstrating your skills in developing a high-quality, user-friendly app",
+      "image": "assets/images/alarm.jpg",
+      "link": "https://github.com/laith-alskaf/company-profile-app_task"
+    },
+    {
+      "name": "First Project",
+      "description": "This project is my first Flutter application that I created as a learning experience to understand and control different widgets and their properties in Flutter. It demonstrates my exploration of widget functionalities and customization options. I look forward to sharing it on GitHub to contribute to the communitys learning process.",
+      "image": "assets/images/alarm.jpg",
+      "link": "https://github.com/laith-alskaf/first_project.git"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Flutter Mastery: Empowering Skills (Trainee)",
+      "disc": "A one-month training course in Flutter mobile application development offers individuals a wealth of essential knowledge and skills.",
+      "organization": "Japan Syria Friendship Association",
+      "date": "2022",
+      "skills": "Flutter . Dart . clean Architecture . ResponsiveApp",
+      "credential": "https://drive.google.com/file/d/1NjIxL47MIcHiVrSwfoyifHnaGnVDB_0c/view?usp=drive_link"
+    },
+    {
+      "name": "Flutter App Development Course",
+      "disc": "Valuable experience in diverse projects, strong teamwork and communication skills, expert in problem-solving, project planning, and delivering high-quality mobile applications",
+      "organization": "Darrebni Company",
+      "date": "2023",
+      "skills": "Flutter . iOS . Android . Firebase . Clean Architecture . Maps . Local Storage . Getx",
+      "credential": "https://drive.google.com/file/d/1t3RkuspkykSgYuWmXdctWdCHLuwEUH56/view?usp=drive_link"
+    }
+  ],
+  "personal_info": {
+    "name": "Laith Alskaf",
+    "line": "Software Engineering | Flutter Developer",
+    "image": "assets/images/profile.png",
+    "my_number": "+963982055788",
+    "email": "liethmhmad231@gmail.com",
+    "linkedIn": "@laith-alskaf",
+    "github": "@laith-alskaf",
+    "about_me": "Dynamic and creative Flutter Developer with 3 years of experience in building robust applications. Skilled in producing high-quality code and collaborating effectively with development teams. Passionate about creating user-friendly solutions that enhance experiences and simplify tasks. Proactive planner, fast learner, and adept problem solver. Ready to contribute to impactful Flutter projects and deliver innovative solutions.",
+    "cv": "https://drive.google.com/file/d/1XZrnNms6DM3_TAJjDMNkKzI2hl3P2BCv/view?usp=drivesdk",
+    "education": [
+      {
+        "title": "College of Information Engineering",
+        "body": "Bachelor’s Software Engineering",
+        "university": "Albaath ,Syria",
+        "date": "June 2019 -September 2024"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Flutter",
+        "percentage": 0.8,
+        "image": "assets/icons/flutter.png"
+      },
+      {
+        "name": "Dart",
+        "percentage": 0.9,
+        "image": "assets/icons/dart.png"
+      },
+      {
+        "name": "Firebase",
+        "percentage": 0.6,
+        "image": "assets/icons/firebase.png"
+      },
+      {
+        "name": "Getx",
+        "percentage": 0.93,
+        "image": "assets/icons/flutter.png"
+      },
+      {
+        "name": "Sqlite",
+        "percentage": 0.7,
+        "image": "assets/icons/dart.png"
+      },
+      {
+        "name": "Hive",
+        "percentage": 0.75,
+        "image": "assets/icons/dart.png"
+      },
+      {
+        "name": "Socket.io",
+        "percentage": 0.82,
+        "image": "assets/icons/flutter.png"
+      },
+      {
+        "name": "Responsive Design",
+        "percentage": 0.8,
+        "image": "assets/icons/flutter.png"
+      },
+      {
+        "name": "Clean Architecture",
+        "percentage": 0.9,
+        "image": "assets/icons/flutter.png"
+      },
+      {
+        "name": "Unit Test Dart",
+        "percentage": 0.45,
+        "image": "assets/icons/dart.png"
+      }
+    ],
+    "knowledge": [
+      "Flutter, Dart",
+      "Java, Python",
+      "Git(Github,GitLab)"
+    ],
+    "contactMe": [
+      {
+        "image": "assets/icons/github.svg",
+        "link": "https://github.com/laith-alskaf"
+      },
+      {
+        "image": "assets/icons/linkedin.svg",
+        "link": "https://linkedin.com/in/laith-alskaf-b12648222"
+      }
+    ]
+  }
+}
