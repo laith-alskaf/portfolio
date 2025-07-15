@@ -558,7 +558,7 @@ const Portfolio = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockData.projects.map((project, index) => (
+            {portfolioData.projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
