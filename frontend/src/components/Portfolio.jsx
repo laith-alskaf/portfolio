@@ -85,7 +85,7 @@ const Portfolio = () => {
     setIsSubmitting(true);
     
     try {
-      const result = await mockApiCalls.submitContact(formData);
+      const result = await handleContactSubmission(formData);
       if (result.success) {
         toast({
           title: "Message sent!",
