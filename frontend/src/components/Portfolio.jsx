@@ -7,7 +7,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
 import { useToast } from '../hooks/use-toast';
-import { portfolioData, handleContactSubmission } from '../mock/mockData';
+import { portfolioData, handleContactSubmission } from '../data/portfolioData';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
