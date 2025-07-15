@@ -105,7 +105,57 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating Orbs */}
+        {floatingElements.map((element) => (
+          <motion.div
+            key={element.id}
+            className="absolute w-4 h-4 rounded-full"
+            style={{
+              background: `linear-gradient(45deg, 
+                ${['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'][element.id % 6]}, 
+                ${['#ff8e8e', '#6ee8e0', '#67c7e8', '#b8d8c7', '#ffefc4', '#e8b8e8'][element.id % 6]}
+              )`,
+              left: `${element.x}%`,
+              top: `${element.y}%`,
+              filter: 'blur(1px)',
+            }}
+            animate={{
+              y: [0, -30, 0],
+              x: [0, 15, 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{
+              duration: element.duration,
+              repeat: Infinity,
+              delay: element.delay,
+            }}
+          />
+        ))}
+
+        {/* Gradient Mesh */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 animate-pulse" />
+        
+        {/* Interactive Mouse Follower */}
+        <motion.div
+          className="absolute w-96 h-96 rounded-full pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(139, 69, 219, 0.1) 0%, transparent 70%)',
+            left: mousePosition.x - 192,
+            top: mousePosition.y - 192,
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+        />
+      </div>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
