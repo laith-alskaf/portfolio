@@ -429,7 +429,7 @@ const Portfolio = () => {
               </motion.div>
             </motion.h2>
             <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
-              {mockData.personal.bio}
+              {portfolioData.personal.bio}
             </p>
           </motion.div>
 
@@ -445,7 +445,7 @@ const Portfolio = () => {
                 Skills & Technologies
               </h3>
               <div className="space-y-6">
-                {mockData.skills.map((skill, index) => (
+                {portfolioData.skills.map((skill, index) => (
                   <div key={index} className="space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-white font-medium">{skill.name}</span>
