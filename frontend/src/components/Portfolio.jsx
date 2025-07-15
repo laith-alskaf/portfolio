@@ -245,30 +245,102 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-800 dark:text-white mb-4">
-              Hi, I'm <span className="text-blue-600 dark:text-blue-400">Anastasia</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8">
-              {mockData.personal.title}
-            </p>
-            <p className="text-lg text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-              {mockData.personal.subtitle}
-            </p>
-            <Button 
-              onClick={() => scrollToSection('projects')}
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105"
+            <motion.div
+              className="relative inline-block"
+              animate={{
+                rotate: [0, 1, -1, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              View Projects
-            </Button>
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 relative">
+                Hi, I'm <span className="relative">
+                  <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                    Anastasia
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur-xl opacity-20"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.2, 0.3, 0.2],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                    }}
+                  />
+                </span>
+              </h1>
+              <motion.div
+                className="absolute -top-4 -right-4"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              >
+                <Sparkles size={32} className="text-yellow-400" />
+              </motion.div>
+            </motion.div>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-xl md:text-2xl text-white/90 mb-8"
+            >
+              {mockData.personal.title}
+            </motion.p>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-lg text-white/70 mb-12 max-w-2xl mx-auto"
+            >
+              {mockData.personal.subtitle}
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              <Button 
+                onClick={() => scrollToSection('projects')}
+                size="lg"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  <Zap size={20} />
+                  View Projects
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                />
+              </Button>
+            </motion.div>
           </motion.div>
           
           <motion.div
@@ -277,13 +349,46 @@ const Portfolio = () => {
             transition={{ delay: 1, duration: 0.8 }}
             className="mt-16"
           >
-            <ChevronDown 
-              size={32} 
-              className="mx-auto text-slate-400 animate-bounce cursor-pointer"
+            <motion.div
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+              className="cursor-pointer"
               onClick={() => scrollToSection('about')}
-            />
+            >
+              <ChevronDown size={32} className="mx-auto text-white/60 hover:text-white transition-colors" />
+            </motion.div>
           </motion.div>
         </div>
+        
+        {/* Decorative Elements */}
+        <motion.div
+          className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-20 blur-xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-10 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full opacity-20 blur-xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+          }}
+        />
       </section>
 
       {/* About Section */}
