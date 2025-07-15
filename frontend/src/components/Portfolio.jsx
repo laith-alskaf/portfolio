@@ -516,18 +516,43 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
-              Featured Projects
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+              animate={{
+                backgroundPosition: ['0%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Featured Projects
+              </span>
+              <motion.div
+                className="absolute -top-2 -right-8"
+                animate={{
+                  rotate: [0, -360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              >
+                <Sparkles size={24} className="text-pink-400" />
+              </motion.div>
+            </motion.h2>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Here are some of my recent projects that showcase my skills and experience
             </p>
           </motion.div>
@@ -539,40 +564,100 @@ const Portfolio = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group"
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group relative"
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
+                <Card className="h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden relative">
+                  {/* Animated Background */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                    animate={{
+                      background: [
+                        'linear-gradient(45deg, #8B5CF6, #EC4899)',
+                        'linear-gradient(45deg, #EC4899, #3B82F6)',
+                        'linear-gradient(45deg, #3B82F6, #8B5CF6)',
+                      ],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                    }}
+                  />
+                  
+                  <div className="aspect-video bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 relative overflow-hidden">
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <motion.div 
+                      className="absolute inset-0 flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                         <ExternalLink size={24} className="text-white" />
                       </div>
-                    </div>
+                    </motion.div>
+                    
+                    {/* Floating elements */}
+                    <motion.div
+                      className="absolute top-4 left-4 w-3 h-3 bg-yellow-400 rounded-full"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5,
+                      }}
+                    />
+                    <motion.div
+                      className="absolute bottom-4 right-4 w-2 h-2 bg-cyan-400 rounded-full"
+                      animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 0.8, 0.3],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: index * 0.3,
+                      }}
+                    />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  
+                  <CardHeader className="relative z-10">
+                    <CardTitle className="text-xl text-white group-hover:text-purple-300 transition-colors duration-300">
                       {project.title}
                     </CardTitle>
-                    <CardDescription className="text-sm">
+                    <CardDescription className="text-white/70 text-sm">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  
+                  <CardContent className="space-y-4 relative z-10">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
+                        <motion.div
+                          key={techIndex}
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Badge 
+                            variant="secondary" 
+                            className={`text-xs bg-gradient-to-r ${
+                              ['from-purple-500 to-pink-500', 'from-blue-500 to-cyan-500', 'from-green-500 to-teal-500', 'from-orange-500 to-red-500'][techIndex % 4]
+                            } text-white border-0`}
+                          >
+                            {tech}
+                          </Badge>
+                        </motion.div>
                       ))}
                     </div>
+                    
                     <div className="flex gap-4 pt-4">
                       <Button 
                         variant="outline" 
                         size="sm"
                         onClick={() => window.open(project.liveDemo, '_blank')}
-                        className="flex-1"
+                        className="flex-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
                       >
                         <ExternalLink size={16} className="mr-2" />
                         Live Demo
@@ -581,7 +666,7 @@ const Portfolio = () => {
                         variant="outline" 
                         size="sm"
                         onClick={() => window.open(project.github, '_blank')}
-                        className="flex-1"
+                        className="flex-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
                       >
                         <Github size={16} className="mr-2" />
                         GitHub
