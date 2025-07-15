@@ -392,18 +392,43 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
-              About Me
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+              animate={{
+                backgroundPosition: ['0%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                About Me
+              </span>
+              <motion.div
+                className="absolute -top-2 -right-8"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+              >
+                <Code size={24} className="text-cyan-400" />
+              </motion.div>
+            </motion.h2>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
               {mockData.personal.bio}
             </p>
           </motion.div>
@@ -413,22 +438,43 @@ const Portfolio = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">Skills & Technologies</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <Star className="text-yellow-400" size={24} />
+                Skills & Technologies
+              </h3>
+              <div className="space-y-6">
                 {mockData.skills.map((skill, index) => (
-                  <div key={index} className="space-y-2">
+                  <div key={index} className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-slate-700 dark:text-slate-300 font-medium">{skill.name}</span>
-                      <Badge variant="outline" className="text-xs">{skill.category}</Badge>
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <Badge 
+                        variant="outline" 
+                        className={`text-xs bg-gradient-to-r ${skillColors[skill.category]} text-white border-0`}
+                      >
+                        {skill.category}
+                      </Badge>
                     </div>
-                    <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                    <div className="w-full bg-white/10 rounded-full h-3 relative overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        className="bg-blue-600 h-2 rounded-full"
-                      />
+                        transition={{ duration: 1.5, delay: index * 0.1 }}
+                        className={`h-3 rounded-full bg-gradient-to-r ${skillColors[skill.category]} relative`}
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-white/20 rounded-full"
+                          animate={{
+                            x: ['-100%', '100%'],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.2,
+                          }}
+                        />
+                      </motion.div>
                     </div>
                   </div>
                 ))}
@@ -441,17 +487,28 @@ const Portfolio = () => {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">Experience</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <Zap className="text-purple-400" size={24} />
+                Experience
+              </h3>
               {mockData.experiences.map((exp, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{exp.position}</CardTitle>
-                    <CardDescription className="text-blue-600 dark:text-blue-400">{exp.company} • {exp.duration}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-slate-600 dark:text-slate-300">{exp.description}</p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+                    <CardHeader>
+                      <CardTitle className="text-lg text-white">{exp.position}</CardTitle>
+                      <CardDescription className="text-purple-300">
+                        {exp.company} • {exp.duration}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-white/80">{exp.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </motion.div>
           </div>
