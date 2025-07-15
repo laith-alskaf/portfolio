@@ -1,8 +1,11 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "anastasia-portfolio",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://laith-alskaf.github.io/portfolio",
+  "description": "A modern, colorful portfolio website for Anastasia - Flutter & Mobile App Developer",
+  "author": "Anastasia",
+  "keywords": ["portfolio", "flutter", "react", "developer", "mobile-app"],
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-accordion": "^1.2.8",
