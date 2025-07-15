@@ -739,14 +739,14 @@ const Portfolio = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <Mail className="text-purple-400" size={24} />
-                  <span className="text-white">{mockData.personal.email}</span>
+                  <span className="text-white">{portfolioData.personal.email}</span>
                 </motion.div>
                 <motion.div 
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
                   <MapPin className="text-pink-400" size={24} />
-                  <span className="text-white">{mockData.personal.location}</span>
+                  <span className="text-white">{portfolioData.personal.location}</span>
                 </motion.div>
               </div>
               
@@ -759,7 +759,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(mockData.personal.github, '_blank')}
+                    onClick={() => window.open(portfolioData.personal.github, '_blank')}
                     className="w-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
                   >
                     <Github size={20} className="mr-2" />
@@ -774,7 +774,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(mockData.personal.linkedin, '_blank')}
+                    onClick={() => window.open(portfolioData.personal.linkedin, '_blank')}
                     className="w-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
                   >
                     <Linkedin size={20} className="mr-2" />
