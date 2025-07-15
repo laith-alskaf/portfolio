@@ -14,9 +14,38 @@ const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { toast } = useToast();
 
   const sections = ['home', 'about', 'projects', 'contact'];
+
+  // Mouse tracking for interactive effects
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Floating elements animation
+  const floatingElements = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    delay: i * 0.2,
+    duration: 3 + (i % 3),
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+  }));
+
+  // Skill colors
+  const skillColors = {
+    Mobile: 'from-purple-500 to-pink-500',
+    Language: 'from-blue-500 to-cyan-500',
+    Web: 'from-green-500 to-teal-500',
+    Backend: 'from-orange-500 to-red-500',
+    Tools: 'from-yellow-500 to-orange-500',
+    Design: 'from-indigo-500 to-purple-500',
+  };
 
   useEffect(() => {
     const handleScroll = () => {
