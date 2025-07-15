@@ -303,7 +303,7 @@ const Portfolio = () => {
               transition={{ delay: 0.3 }}
               className="text-xl md:text-2xl text-white/90 mb-8"
             >
-              {mockData.personal.title}
+              {portfolioData.personal.title}
             </motion.p>
             
             <motion.p
