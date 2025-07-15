@@ -878,11 +878,31 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-8">
+      <footer className="bg-black/50 backdrop-blur-md text-white py-8 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-slate-400">
-            © 2024 Anastasia. Built with React and lots of ☕
-          </p>
+          <motion.p 
+            className="text-white/70"
+            animate={{
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+          >
+            © 2024 Anastasia. Built with React and lots of{' '}
+            <motion.span
+              animate={{
+                color: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+              }}
+            >
+              ☕
+            </motion.span>
+          </motion.p>
         </div>
       </footer>
     </div>
