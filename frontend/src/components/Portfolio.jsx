@@ -681,18 +681,43 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6">
-              Get In Touch
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+              animate={{
+                backgroundPosition: ['0%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                Get In Touch
+              </span>
+              <motion.div
+                className="absolute -top-2 -right-8"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+              >
+                <Mail size={24} className="text-cyan-400" />
+              </motion.div>
+            </motion.h2>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </motion.div>
@@ -702,38 +727,60 @@ const Portfolio = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="space-y-8"
             >
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">Let's Connect</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <Mail className="text-blue-600 dark:text-blue-400" size={24} />
-                  <span className="text-slate-700 dark:text-slate-300">{mockData.personal.email}</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <MapPin className="text-blue-600 dark:text-blue-400" size={24} />
-                  <span className="text-slate-700 dark:text-slate-300">{mockData.personal.location}</span>
-                </div>
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <Sparkles className="text-yellow-400" size={24} />
+                Let's Connect
+              </h3>
+              <div className="space-y-6">
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Mail className="text-purple-400" size={24} />
+                  <span className="text-white">{mockData.personal.email}</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <MapPin className="text-pink-400" size={24} />
+                  <span className="text-white">{mockData.personal.location}</span>
+                </motion.div>
               </div>
               
-              <div className="mt-8 flex space-x-4">
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => window.open(mockData.personal.github, '_blank')}
+              <div className="flex space-x-4 pt-4">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Github size={20} className="mr-2" />
-                  GitHub
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  onClick={() => window.open(mockData.personal.linkedin, '_blank')}
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => window.open(mockData.personal.github, '_blank')}
+                    className="w-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
+                  >
+                    <Github size={20} className="mr-2" />
+                    GitHub
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Linkedin size={20} className="mr-2" />
-                  LinkedIn
-                </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => window.open(mockData.personal.linkedin, '_blank')}
+                    className="w-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
+                  >
+                    <Linkedin size={20} className="mr-2" />
+                    LinkedIn
+                  </Button>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -741,9 +788,13 @@ const Portfolio = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="relative"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Input
                     type="text"
                     name="name"
@@ -751,10 +802,13 @@ const Portfolio = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Input
                     type="email"
                     name="email"
@@ -762,10 +816,13 @@ const Portfolio = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <Textarea
                     name="message"
                     placeholder="Your Message"
@@ -773,16 +830,47 @@ const Portfolio = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300 resize-none"
                   />
-                </div>
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </Button>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {isSubmitting ? (
+                        <>
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full"
+                          />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Zap size={20} />
+                          Send Message
+                        </>
+                      )}
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      animate={{
+                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                      }}
+                    />
+                  </Button>
+                </motion.div>
               </form>
             </motion.div>
           </div>
