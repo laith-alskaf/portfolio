@@ -157,41 +157,64 @@ const Portfolio = () => {
         />
       </div>
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="font-bold text-xl text-slate-800 dark:text-white"
+              className="font-bold text-xl text-white relative"
             >
-              Anastasia
+              <span className="relative z-10">Anastasia</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur-lg opacity-30"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              />
             </motion.div>
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {sections.map((section) => (
-                <button
+                <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-colors duration-200 ${
+                  className={`capitalize transition-all duration-300 relative px-3 py-2 ${
                     activeSection === section
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400'
+                      ? 'text-white'
+                      : 'text-white/70 hover:text-white'
                   }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   {section}
-                </button>
+                  {activeSection === section && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg -z-10"
+                      layoutId="activeSection"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.button>
               ))}
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+            <motion.button
+              className="md:hidden p-2 rounded-lg hover:bg-white/10 text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -202,17 +225,18 @@ const Portfolio = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700"
+              className="md:hidden bg-black/30 backdrop-blur-md border-t border-white/10"
             >
               <div className="px-4 py-2 space-y-2">
                 {sections.map((section) => (
-                  <button
+                  <motion.button
                     key={section}
                     onClick={() => scrollToSection(section)}
-                    className="block w-full text-left px-3 py-2 rounded-lg capitalize hover:bg-slate-100 dark:hover:bg-slate-800"
+                    className="block w-full text-left px-3 py-2 rounded-lg capitalize hover:bg-white/10 text-white"
+                    whileHover={{ x: 5 }}
                   >
                     {section}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </motion.div>
