@@ -491,7 +491,7 @@ const Portfolio = () => {
                 <Zap className="text-purple-400" size={24} />
                 Experience
               </h3>
-              {mockData.experiences.map((exp, index) => (
+              {portfolioData.experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.02 }}
