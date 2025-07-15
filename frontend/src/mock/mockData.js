@@ -1,5 +1,5 @@
-// Mock data for portfolio website
-export const mockData = {
+// Portfolio data for Anastasia - Flutter Developer
+export const portfolioData = {
   personal: {
     name: "Anastasia",
     title: "Software Developer",
@@ -91,20 +91,27 @@ export const mockData = {
   ]
 };
 
-// Mock functions for form submissions (will be replaced with actual API calls)
-export const mockApiCalls = {
-  submitContact: async (formData) => {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Simulate successful submission
-    console.log('Contact form submitted:', formData);
-    return { success: true, message: 'Thank you for your message! I\'ll get back to you soon.' };
-  },
+// Contact form handler for frontend-only deployment
+export const handleContactSubmission = async (formData) => {
+  // For frontend-only deployment, we'll use mailto or a service like Formspree
+  // This is a placeholder that simulates successful submission
   
-  subscribeNewsletter: async (email) => {
-    await new Promise(resolve => setTimeout(resolve, 800));
-    console.log('Newsletter subscription:', email);
-    return { success: true, message: 'Successfully subscribed to newsletter!' };
-  }
+  // Option 1: Use mailto (simple but opens email client)
+  const mailtoLink = `mailto:${portfolioData.personal.email}?subject=Portfolio Contact: ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AMessage: ${formData.message}`;
+  
+  // Option 2: For a more sophisticated solution, you could integrate with services like:
+  // - Formspree (https://formspree.io/)
+  // - Netlify Forms (if hosted on Netlify)
+  // - EmailJS (client-side email service)
+  
+  // Simulate API delay for better UX
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  // For demo purposes, we'll show success message and open mailto
+  window.open(mailtoLink, '_blank');
+  
+  return { 
+    success: true, 
+    message: 'Thank you for your message! Your email client should open with the pre-filled message.' 
+  };
 };
