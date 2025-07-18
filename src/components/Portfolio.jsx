@@ -165,7 +165,7 @@ const Portfolio = () => {
               animate={{ opacity: 1, x: 0 }}
               className="font-bold text-xl text-white relative"
             >
-              <span className="relative z-10">Anastasia</span>
+              <span className="relative z-10">Laith Alskaf</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur-lg opacity-30"
                 animate={{
@@ -267,7 +267,7 @@ const Portfolio = () => {
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 relative">
                 Hi, I'm <span className="relative">
                   <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                    Anastasia
+                    Laith
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur-xl opacity-20"
@@ -514,7 +514,58 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+      {/* EDUCATION  Section */}
+<section id="education" className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <motion.h2 
+        className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+        animate={{
+          backgroundPosition: ['0%', '100%', '0%'],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+        }}
+      >
+        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          Education
+        </span>
+      </motion.h2>
+      <p className="text-lg text-white/80 max-w-2xl mx-auto">
+        A summary of my academic background and achievements.
+      </p>
+    </motion.div>
 
+    <div className="grid md:grid-cols-2 gap-12">
+      {portfolioData.education.map((edu, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+            <CardHeader>
+              <CardTitle className="text-lg text-white">{edu.degree}</CardTitle>
+              <CardDescription className="text-purple-300">
+                {edu.institution} • {edu.year}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white/80">{edu.description}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
@@ -679,7 +730,58 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+      {/* CERTIFICATES  Section */}
+<section id="certificates" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
+  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <motion.h2 
+        className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+        animate={{
+          backgroundPosition: ['0%', '100%', '0%'],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+        }}
+      >
+        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          Certificates
+        </span>
+      </motion.h2>
+      <p className="text-lg text-white/80 max-w-2xl mx-auto">
+        A collection of my certifications and achievements.
+      </p>
+    </motion.div>
 
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {portfolioData.certificates.map((cert, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+            <CardHeader>
+              <CardTitle className="text-lg text-white">{cert.title}</CardTitle>
+              <CardDescription className="text-purple-300">
+                {cert.issuer} • {cert.year}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-white/80">{cert.description}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
@@ -890,7 +992,7 @@ const Portfolio = () => {
               repeat: Infinity,
             }}
           >
-            © 2024 Anastasia. Built with React and lots of{' '}
+            © 2024 Laith. Built with React and lots of{' '}
             <motion.span
               animate={{
                 color: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'],
