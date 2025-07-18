@@ -13,16 +13,10 @@ export const portfolioData = {
   },
  education: [
     {
-      degree: "Bachelor of Computer Science",
-      institution: "University of Damascus",
-      year: "2022",
-      description: "Specialized in software engineering and mobile app development."
-    },
-    {
-      degree: "High School Diploma",
-      institution: "Al-Farabi High School",
-      year: "2018",
-      description: "Focused on mathematics and computer science."
+      degree: "College of Information Engineering",
+      institution: "University of Homs",
+      year: "2019-2024",
+      description: "Bachelor’s Software Engineering"
     }
   ],
    certificates: [

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Sparkles, Code, Zap, Star } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Sparkles, Code, Zap, Star, MessageCircle, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
@@ -373,6 +373,46 @@ const Portfolio = () => {
                     Contact Me
                   </span>
                 </Button>
+              </motion.div>
+
+              {/* WhatsApp & Telegram Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="flex gap-4 justify-center lg:justify-start"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Button
+                    onClick={() => window.open(`https://wa.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    size="lg"
+                    className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25"
+                  >
+                    <span className="flex items-center gap-2">
+                      <MessageCircle size={20} />
+                      WhatsApp
+                    </span>
+                  </Button>
+                </motion.div>
+                
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Button
+                    onClick={() => window.open(`https://t.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Send size={20} />
+                      Telegram
+                    </span>
+                  </Button>
+                </motion.div>
               </motion.div>
 
               {/* Stats */}
@@ -1107,6 +1147,13 @@ const Portfolio = () => {
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
+                  <Phone className="text-green-400" size={24} />
+                  <span className="text-white">{portfolioData.personal.phone}</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
                   <MapPin className="text-pink-400" size={24} />
                   <span className="text-white">{portfolioData.personal.location}</span>
                 </motion.div>
@@ -1141,6 +1188,40 @@ const Portfolio = () => {
                   >
                     <Linkedin size={20} className="mr-2" />
                     LinkedIn
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* WhatsApp & Telegram Buttons */}
+              <div className="flex space-x-4 pt-2">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1"
+                >
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => window.open(`https://wa.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    className="w-full bg-gradient-to-r from-green-500/20 to-green-600/20 border-green-400/50 text-white hover:from-green-500/30 hover:to-green-600/30 transition-all duration-300"
+                  >
+                    <MessageCircle size={20} className="mr-2" />
+                    WhatsApp
+                  </Button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1"
+                >
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => window.open(`https://t.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    className="w-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-blue-600/30 transition-all duration-300"
+                  >
+                    <Send size={20} className="mr-2" />
+                    Telegram
                   </Button>
                 </motion.div>
               </div>
