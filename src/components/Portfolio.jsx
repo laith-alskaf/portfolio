@@ -17,7 +17,7 @@ const Portfolio = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { toast } = useToast();
 
-  const sections = ['home', 'about', 'projects', 'contact'];
+  const sections = ['home', 'about', 'education', 'projects', 'certificates', 'contact'];
 
   // Mouse tracking for interactive effects
   useEffect(() => {
@@ -50,7 +50,7 @@ const Portfolio = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'about', 'education', 'projects', 'certificates', 'contact'];
       
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -246,108 +246,283 @@ const Portfolio = () => {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
             <motion.div
-              className="relative inline-block"
-              animate={{
-                rotate: [0, 1, -1, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6 text-center lg:text-left"
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 relative">
-                Hi, I'm <span className="relative">
-                  <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                    Laith
+              <motion.div
+                className="relative inline-block"
+                animate={{
+                  rotate: [0, 1, -1, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
+                  Hi, I'm <span className="relative">
+                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                      Laith
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur-xl opacity-20"
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.2, 0.3, 0.2],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    />
+                  </span>
+                </h1>
+                <motion.div
+                  className="absolute -top-4 -right-4"
+                  animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Sparkles size={32} className="text-yellow-400" />
+                </motion.div>
+              </motion.div>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-xl md:text-2xl text-white/90 mb-4"
+              >
+                {portfolioData.personal.title}
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-lg text-white/70 mb-6 max-w-2xl mx-auto lg:mx-0"
+              >
+                {portfolioData.personal.subtitle}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
+              >
+                {['Flutter', 'Node.js', 'Mobile Dev', 'Backend'].map((skill, index) => (
+                  <motion.div
+                    key={skill}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-400/30 text-white text-sm font-medium"
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              >
+                <Button 
+                  onClick={() => scrollToSection('projects')}
+                  size="lg"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Zap size={20} />
+                    View Projects
                   </span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur-xl opacity-20"
+                    className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.2, 0.3, 0.2],
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                    }}
+                  />
+                </Button>
+                
+                <Button 
+                  onClick={() => scrollToSection('contact')}
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:border-purple-400/50"
+                >
+                  <span className="flex items-center gap-2">
+                    <Mail size={20} />
+                    Contact Me
+                  </span>
+                </Button>
+              </motion.div>
+
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="flex justify-center lg:justify-start gap-8 mt-8"
+              >
+                <div className="text-center">
+                  <motion.div
+                    className="text-2xl md:text-3xl font-bold text-white mb-1"
+                    animate={{
+                      scale: [1, 1.05, 1],
                     }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                     }}
-                  />
-                </span>
-              </h1>
-              <motion.div
-                className="absolute -top-4 -right-4"
-                animate={{
-                  rotate: [0, 360],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                }}
-              >
-                <Sparkles size={32} className="text-yellow-400" />
+                  >
+                    3+
+                  </motion.div>
+                  <div className="text-sm text-white/60">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <motion.div
+                    className="text-2xl md:text-3xl font-bold text-white mb-1"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 0.5,
+                    }}
+                  >
+                    10+
+                  </motion.div>
+                  <div className="text-sm text-white/60">Projects Completed</div>
+                </div>
+                <div className="text-center">
+                  <motion.div
+                    className="text-2xl md:text-3xl font-bold text-white mb-1"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: 1,
+                    }}
+                  >
+                    90%
+                  </motion.div>
+                  <div className="text-sm text-white/60">Client Satisfaction</div>
+                </div>
               </motion.div>
             </motion.div>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-xl md:text-2xl text-white/90 mb-8"
-            >
-              {portfolioData.personal.title}
-            </motion.p>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg text-white/70 mb-12 max-w-2xl mx-auto"
-            >
-              {portfolioData.personal.subtitle}
-            </motion.p>
-            
+
+            {/* Right Column - Profile Image */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center lg:justify-end"
             >
-              <Button 
-                onClick={() => scrollToSection('projects')}
-                size="lg"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  <Zap size={20} />
-                  View Projects
-                </span>
+              <div className="relative">
+                {/* Main Profile Image */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden ring-4 ring-white/20 shadow-2xl"
                   animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <img
+                    src={portfolioData.personal.image}
+                    alt="Laith Alskaf"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 via-transparent to-transparent" />
+                </motion.div>
+
+                {/* Decorative Elements */}
+                <motion.div
+                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-80 blur-md"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                />
+                <motion.div
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full opacity-80 blur-md"
+                  animate={{
+                    scale: [1.2, 1, 1.2],
+                    rotate: [360, 180, 0],
                   }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
                   }}
                 />
-              </Button>
+
+                {/* Floating Code Icon */}
+                <motion.div
+                  className="absolute top-8 -left-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full p-4 shadow-lg"
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Code size={24} className="text-white" />
+                </motion.div>
+
+                {/* Floating Zap Icon */}
+                <motion.div
+                  className="absolute bottom-8 -right-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full p-4 shadow-lg"
+                  animate={{
+                    y: [0, 15, 0],
+                    rotate: [0, -360],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Zap size={24} className="text-white" />
+                </motion.div>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
           
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-16"
+            className="mt-16 text-center"
           >
             <motion.div
               animate={{
@@ -753,9 +928,22 @@ const Portfolio = () => {
         <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
           Certificates
         </span>
+        <motion.div
+          className="absolute -top-2 -right-8"
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+          }}
+        >
+          <Star size={24} className="text-yellow-400" />
+        </motion.div>
       </motion.h2>
       <p className="text-lg text-white/80 max-w-2xl mx-auto">
-        A collection of my certifications and achievements.
+        My professional certifications and achievements in software development.
       </p>
     </motion.div>
 
@@ -763,18 +951,90 @@ const Portfolio = () => {
       {portfolioData.certificates.map((cert, index) => (
         <motion.div
           key={index}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          whileHover={{ y: -10, scale: 1.02 }}
+          className="group relative"
         >
-          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
-            <CardHeader>
-              <CardTitle className="text-lg text-white">{cert.title}</CardTitle>
-              <CardDescription className="text-purple-300">
-                {cert.issuer} • {cert.year}
+          <Card className="h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden">
+            {/* Certificate Image */}
+            <div className="aspect-video bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 relative overflow-hidden">
+              <img 
+                src={cert.image} 
+                alt={cert.title}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              
+              {/* View Certificate Button */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Button
+                  size="sm"
+                  className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300"
+                  onClick={() => window.open(cert.image, '_blank')}
+                >
+                  <ExternalLink size={16} className="mr-2" />
+                  View Certificate
+                </Button>
+              </motion.div>
+              
+              {/* Certificate Badge */}
+              <div className="absolute top-4 right-4">
+                <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white border-0">
+                  {cert.year}
+                </Badge>
+              </div>
+            </div>
+            
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-lg text-white group-hover:text-purple-300 transition-colors duration-300">
+                {cert.title}
+              </CardTitle>
+              <CardDescription className="text-purple-300 flex items-center gap-2">
+                <Star size={16} className="text-yellow-400" />
+                {cert.issuer}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <p className="text-white/80">{cert.description}</p>
+            
+            <CardContent className="space-y-4 relative z-10">
+              <p className="text-white/80 text-sm leading-relaxed">
+                {cert.description}
+              </p>
+              
+              {/* Credential ID */}
+              {cert.credential && (
+                <div className="pt-2 border-t border-white/10">
+                  <p className="text-xs text-white/60">
+                    Credential ID: <span className="text-purple-300">{cert.credential}</span>
+                  </p>
+                </div>
+              )}
+              
+              {/* Action Buttons */}
+              <div className="flex gap-2 pt-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
+                  onClick={() => window.open(cert.image, '_blank')}
+                >
+                  <ExternalLink size={14} className="mr-2" />
+                  View
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
+                  onClick={() => navigator.clipboard.writeText(cert.credential || cert.title)}
+                >
+                  <Code size={14} className="mr-2" />
+                  Copy ID
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </motion.div>

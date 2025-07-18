@@ -9,7 +9,7 @@ export const portfolioData = {
     github: "https://github.com/laith-alskaf",
     linkedin: "https://www.linkedin.com/in/laith-alskaf-10a4b4339",
     location: "Sahnaya, Damascus, Syria",
-        image: "/path/to/your/image.jpg" 
+    image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869322/laith_bccr2p.jpg"
   },
  education: [
     {
@@ -27,22 +27,28 @@ export const portfolioData = {
   ],
    certificates: [
     {
-      title: "Flutter Advanced Development",
-      issuer: "Udemy",
+      title: "Flutter Mobile Development",
+      issuer: "Internship Pakistan",
+      year: "2024",
+      description: "Completed advanced course on Flutter development with focus on state management, animations, and performance optimization.",
+      image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869029/cert_in1gpt.png",
+      credential: "UC-certificate-123"
+    },
+    {
+      title: "Flutter Recommendation",
+      issuer: "Darrebni Company",
       year: "2023",
-      description: "Completed advanced course on Flutter development."
+      description: "Comprehensive course on backend architecture, RESTful APIs, and database integration with Node.js.",
+      image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869021/photo_2023-10-18_18-42-38_lyxfyz.jpg",
+      credential: "coursera-certificate-456"
     },
     {
-      title: "Node.js Backend Development",
-      issuer: "Coursera",
+      title: "Flutter Trainging",
+      issuer: "Japan Syria Friendship Association",
       year: "2022",
-      description: "Learned backend architecture and API development."
-    },
-    {
-      title: "Clean Architecture Mastery",
-      issuer: "Pluralsight",
-      year: "2021",
-      description: "Mastered clean architecture principles for scalable applications."
+      description: "Advanced principles of clean architecture for building scalable, maintainable applications.",
+      image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869018/photo_2023-10-18_18-42-41_mi35o9.jpg",
+      credential: "pluralsight-certificate-789"
     }
   ],
   skills: [
@@ -50,15 +56,15 @@ export const portfolioData = {
     { name: "Dart", level: 90, category: "Language" },
     { name: "Node.js", level: 85, category: "Backend" },
     { name: "TypeScript", level: 80, category: "Language" },
-    { name: "MongoDB", level: 80, category: "Database" },
-    { name: "PostgreSQL", level: 75, category: "Database" },
+    { name: "MongoDB", level: 80, category: "Backend" },
+    { name: "PostgreSQL", level: 75, category: "Backend" },
     { name: "Firebase", level: 80, category: "Backend" },
     { name: "Git & GitHub", level: 85, category: "Tools" },
-    { name: "Clean Architecture", level: 80, category: "Architecture" },
-    { name: "GetX / Bloc", level: 80, category: "State Management" },
+    { name: "Clean Architecture", level: 80, category: "Mobile" },
+    { name: "GetX / Bloc", level: 80, category: "Mobile" },
     { name: "REST APIs", level: 85, category: "Backend" },
     { name: "Swagger / Postman", level: 80, category: "Tools" },
-    { name: "Docker (basics)", level: 60, category: "DevOps" },
+    { name: "Docker", level: 60, category: "Tools" },
   ],
 
   projects: [
