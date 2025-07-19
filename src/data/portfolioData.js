@@ -1,15 +1,18 @@
+import { Phone } from "lucide-react";
+
 // Portfolio data for Anastasia - Flutter Developer
 export const portfolioData = {
   personal: {
-    name: "Laith Alskaf",
-    title: "Flutter & Backend Developer",
-    subtitle: "Mobile Apps & Node.js Backend",
+    name: "Eng Laith Alskaf",
+    title: "Software Engineer",
+    subtitle: " Mobile Applications Developer & Backend Developer",
     bio: "Dynamic Flutter Developer with over 3 years of experience building cross-platform mobile apps, and strong backend skills in Node.js and Clean Architecture. Passionate about creating user-friendly, scalable applications that solve real-world problems.",
     email: "laithalskaf@gmail.com",
     github: "https://github.com/laith-alskaf",
     linkedin: "https://www.linkedin.com/in/laith-alskaf-10a4b4339",
     location: "Sahnaya, Damascus, Syria",
-    image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869322/laith_bccr2p.jpg"
+    image: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869322/laith_bccr2p.jpg",
+    phone:'+963982055788'
   },
  education: [
     {

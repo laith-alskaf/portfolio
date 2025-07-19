@@ -453,22 +453,6 @@ const Portfolio = () => {
                   </motion.div>
                   <div className="text-sm text-white/60">Projects Completed</div>
                 </div>
-                <div className="text-center">
-                  <motion.div
-                    className="text-2xl md:text-3xl font-bold text-white mb-1"
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: 1,
-                    }}
-                  >
-                    90%
-                  </motion.div>
-                  <div className="text-sm text-white/60">Client Satisfaction</div>
-                </div>
               </motion.div>
             </motion.div>
 
@@ -1049,7 +1033,9 @@ const Portfolio = () => {
               {cert.credential && (
                 <div className="pt-2 border-t border-white/10">
                   <p className="text-xs text-white/60">
-                    Credential ID: <span className="text-purple-300">{cert.credential}</span>
+                    Credential ID: <span className="text-purple-300">
+                      {/* {cert.credential} */}
+                      </span>
                   </p>
                 </div>
               )}
