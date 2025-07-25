@@ -77,6 +77,16 @@ export const portfolioData = {
     },
     {
       id: 2,
+      title: "Team Management Desktop and Mobile App",
+      description: "Developed a Flutter-based desktop application to streamline team operations at YES For Online Services, boosting task management efficiency by 30% for over 30 employees across Windows and macOS and android. The app integrates task coordination, real-time communication, and leave management into a single, user-friendly platform./nKey Features:/n Task Management: Create, assign, and track tasks and projects./n Admin Dashboard: Monitor performance and oversee project progress./n Communication: Real-time chat (Socket.IO) and notifications (email and local)./n Leave Management: Submit and approve leave requests.",
+      technologies: ["Flutter", "Socket.IO", "Firebase (Notif)"],
+      liveDemo: "",
+      github: "",
+      image: "/api/placeholder/400/250",
+      featured: true
+    },
+    {
+      id: 3,
       title: "Car Service App",
       description: "Graduation project combining Flutter frontend and Node.js backend for booking car parking and maintenance services. Admin dashboard with statistics and service center management.",
       technologies: ["Flutter","Firebase","GetX","Maps","Node.js", "Express", "MongoDB","Socket.io"],
@@ -85,7 +95,7 @@ export const portfolioData = {
       featured: true
     },
     {
-      id: 3,
+      id: 4,
       title: "Darrebni National",
       description: "Training platform for Syrian students to prepare for the National Unified Exam. Built in Flutter during internship with Darrebni Company.",
       technologies: ["Flutter", "Hive", "PDF", "Localization"],
@@ -94,7 +104,7 @@ export const portfolioData = {
       featured: true
     },
     {
-      id: 4,
+      id: 5,
       title: "BetterMe - Health App",
       description: "Health application offering alerts, health tips, BMI calculators, and ChatGPT integration. Built for university graduation project.",
       technologies: ["Flutter", "Hive", "ChatGPT", "Health Metrics"],
@@ -103,7 +113,7 @@ export const portfolioData = {
       featured: false
     },
     {
-      id: 5,
+      id: 6,
       title: "Food Ordering App",
       description: "Cross-platform Flutter app for ordering food with Firebase push notifications, Google Maps integration, and clean architecture.",
       technologies: ["Flutter", "Firebase", "Bloc", "Google Maps"],
@@ -165,3 +175,6 @@ export const handleContactSubmission = async (formData) => {
     message: 'Thank you for your message! Your email client should open with the pre-filled message.' 
   };
 };
+
+
+
