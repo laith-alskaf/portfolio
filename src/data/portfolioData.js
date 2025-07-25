@@ -70,53 +70,78 @@ export const portfolioData = {
       title: "E-commerce Backend",
       description: "Scalable and secure e-commerce backend using Node.js, TypeScript, MongoDB, PostgreSQL, JWT, and Clean Architecture. Includes authentication, product management, wishlist, and Swagger/Postman documentation.",
       technologies: ["Node.js", "TypeScript", "MongoDB", "JWT", "Swagger"],
-      liveDemo: "https://laith-alskaf.github.io/portfolio/",
+      liveDemo: "https://ecommerce-backend-clean-architecture.vercel.app/api-docs/",
       github: "https://github.com/laith-alskaf/ecommerce-backend-clean-architecture",
       image: "/api/placeholder/400/250",
       featured: true
     },
+
     {
       id: 2,
       title: "Team Management Desktop and Mobile App",
-      description: "Developed a Flutter-based desktop application to streamline team operations at YES For Online Services, boosting task management efficiency by 30% for over 30 employees across Windows and macOS and android. The app integrates task coordination, real-time communication, and leave management into a single, user-friendly platform./nKey Features:/n Task Management: Create, assign, and track tasks and projects./n Admin Dashboard: Monitor performance and oversee project progress./n Communication: Real-time chat (Socket.IO) and notifications (email and local)./n Leave Management: Submit and approve leave requests.",
-      technologies: ["Flutter", "Socket.IO", "Firebase (Notif)"],
+      description: "I developed a Flutter-based desktop and mobile application for YES For Online Services that enhanced team productivity by 30% for over 30 employees on Windows and android. This intuitive app streamlined task management by enabling seamless creation, assignment, and tracking of projects, while offering a robust admin dashboard for monitoring performance and progress. It featured real-time communication through a WhatsApp-like chat powered by Socket.IO, alongside integrated email and local notifications to keep teams connected. Additionally, the app simplified leave management, allowing employees to submit requests and administrators to review and approve them efficiently.",
+      technologies: ["Flutter", "Socket.IO", "Firebase"],
+      liveDemo: "",
+      github: "",
+      image: "/api/placeholder/400/250",
+      featured: true
+    },
+      {
+      id: 3,
+      title: "iDBOOK Mobile Application",
+      description: "I contributed to the development of the Orbit section in the İDBOOK mobile app for YES For Online Services, creating a dynamic system to display ads, polls, and posts, reordered by weighted priorities to maximize user engagement. I helped implement timer-based logic to promote favorite content and integrated real-time updates for post reactions and views, ensuring seamless interaction",
+      technologies: ["Flutter","GetX","Provider", "Socket.IO", "Scane QR", "Maps", "Firebase", "Hive"],
+      liveDemo: "https://play.google.com/store/apps/details?id=com.yesforonlineservices.idbook",
+      github: "",
+      image: "/api/placeholder/400/250",
+      featured: true
+    },
+      {
+      id: 4,
+      title: "iDBOOK Agent Mobile Application",
+      description: "is a payment activation application that utilizes QR code scanning. It allows users to activate plans by scanning the corresponding QR codes. The app includes a history feature to track paid plans and requires location activation and sufficient balance. It also features a login page and sends SMS messages for convenient mobile access.",
+      technologies: ["Flutter","GetX", "Socket.IO", "Scane QR", "Maps"],
       liveDemo: "",
       github: "",
       image: "/api/placeholder/400/250",
       featured: true
     },
     {
-      id: 3,
+      id: 5,
       title: "Car Service App",
       description: "Graduation project combining Flutter frontend and Node.js backend for booking car parking and maintenance services. Admin dashboard with statistics and service center management.",
       technologies: ["Flutter","Firebase","GetX","Maps","Node.js", "Express", "MongoDB","Socket.io"],
+      liveDemo: "",
       github: "https://github.com/laith-alskaf/car_service",
       image: "/api/placeholder/400/250",
       featured: true
     },
     {
-      id: 4,
+      id: 6,
       title: "Darrebni National",
       description: "Training platform for Syrian students to prepare for the National Unified Exam. Built in Flutter during internship with Darrebni Company.",
       technologies: ["Flutter", "Hive", "PDF", "Localization"],
+      liveDemo: "",
       github: "https://github.com/laith-alskaf/darrebni_national-Project",
       image: "/api/placeholder/400/250",
       featured: true
     },
     {
-      id: 5,
+      id: 7,
       title: "BetterMe - Health App",
       description: "Health application offering alerts, health tips, BMI calculators, and ChatGPT integration. Built for university graduation project.",
       technologies: ["Flutter", "Hive", "ChatGPT", "Health Metrics"],
       github: "https://github.com/laith-alskaf/better-me",
+      liveDemo: "",
       image: "/api/placeholder/400/250",
       featured: false
     },
     {
-      id: 6,
+      id: 8,
       title: "Food Ordering App",
       description: "Cross-platform Flutter app for ordering food with Firebase push notifications, Google Maps integration, and clean architecture.",
       technologies: ["Flutter", "Firebase", "Bloc", "Google Maps"],
+      liveDemo: "",
       github: "https://github.com/laith-alskaf",
       image: "/api/placeholder/400/250",
       featured: false

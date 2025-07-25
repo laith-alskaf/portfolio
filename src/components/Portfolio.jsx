@@ -8,6 +8,7 @@ import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
 import { useToast } from '../hooks/use-toast';
 import { portfolioData, handleContactSubmission } from '../data/portfolioData';
+import ProjectCard from './ProjectCard';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -809,122 +810,11 @@ const Portfolio = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioData.projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative"
-              >
-                <Card className="h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden relative">
-                  {/* Animated Background */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                    animate={{
-                      background: [
-                        'linear-gradient(45deg, #8B5CF6, #EC4899)',
-                        'linear-gradient(45deg, #EC4899, #3B82F6)',
-                        'linear-gradient(45deg, #3B82F6, #8B5CF6)',
-                      ],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                    }}
-                  />
-                  
-                  <div className="aspect-video bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
-                    <motion.div 
-                      className="absolute inset-0 flex items-center justify-center"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <ExternalLink size={24} className="text-white" />
-                      </div>
-                    </motion.div>
-                    
-                    {/* Floating elements */}
-                    <motion.div
-                      className="absolute top-4 left-4 w-3 h-3 bg-yellow-400 rounded-full"
-                      animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.5,
-                      }}
-                    />
-                    <motion.div
-                      className="absolute bottom-4 right-4 w-2 h-2 bg-cyan-400 rounded-full"
-                      animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.3, 0.8, 0.3],
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        delay: index * 0.3,
-                      }}
-                    />
-                  </div>
-                  
-                  <CardHeader className="relative z-10">
-                    <CardTitle className="text-xl text-white group-hover:text-purple-300 transition-colors duration-300">
-                      {project.title}
-                    </CardTitle>
-                    <CardDescription className="text-white/70 text-sm">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-4 relative z-10">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <motion.div
-                          key={techIndex}
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <Badge 
-                            variant="secondary" 
-                            className={`text-xs bg-gradient-to-r ${
-                              ['from-purple-500 to-pink-500', 'from-blue-500 to-cyan-500', 'from-green-500 to-teal-500', 'from-orange-500 to-red-500'][techIndex % 4]
-                            } text-white border-0`}
-                          >
-                            {tech}
-                          </Badge>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                    <div className="flex gap-4 pt-4">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => window.open(project.liveDemo, '_blank')}
-                        className="flex-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        Live Demo
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => window.open(project.github, '_blank')}
-                        className="flex-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
-                      >
-                        <Github size={16} className="mr-2" />
-                        GitHub
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                index={index} 
+              />
             ))}
           </div>
         </div>
