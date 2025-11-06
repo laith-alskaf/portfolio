@@ -1,20 +1,33 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Sparkles, Code, Zap, Star, MessageCircle, Send } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Sparkles, Code, Zap, Star, MessageCircle,
+  Send,
+  Download,
+  FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
 import { useToast } from '../hooks/use-toast';
-import { portfolioData, handleContactSubmission } from '../data/portfolioData';
-import ProjectCard from './ProjectCard';
+// import { portfolioData, handleContactSubmission } from '../data/portfolioData';
+import { 
+  personalInfo, 
+  projects, 
+  skills,
+  education,
+  certificates,
+  experiences 
+} from '../data/index';
+import ProjectsShowcase from './ProjectsShowcase';
+// import ProjectCard from './ProjectCard';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { toast } = useToast();
 
@@ -77,8 +90,35 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-  const handleInputChange = (e) => {
+    const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // 📥 دالة تنزيل CV
+  const handleDownloadCV = () => {
+    setIsDownloading(true);
+    try {
+      const link = document.createElement("a");
+      link.href = personalInfo.cv.url;
+      link.download = personalInfo.cv.fileName;
+      link.target = "_blank";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      toast({
+        title: "✅ جاري التنزيل",
+        description: "تم بدء تنزيل ملف CV الخاص بك",
+      });
+    } catch (error) {
+      toast({
+        title: "❌ خطأ",
+        description: "حدث خطأ أثناء تنزيل الملف",
+        variant: "destructive",
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -207,6 +247,44 @@ const Portfolio = () => {
               ))}
             </div>
 
+                        {/* CV Download Button - Desktop */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleDownloadCV}
+              disabled={isDownloading}
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/50 rounded-lg text-emerald-300 hover:from-emerald-500/30 hover:to-teal-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/25 hover:border-emerald-400 group relative overflow-hidden"
+            >
+              <motion.div
+                animate={{ y: isDownloading ? [0, -2, 0] : 0 }}
+                transition={{ duration: 0.6, repeat: isDownloading ? Infinity : 0 }}
+              >
+                {isDownloading ? (
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    className="w-4 h-4 border-2 border-emerald-400/20 border-t-emerald-400 rounded-full"
+                  />
+                ) : (
+                  <Download size={18} className="group-hover:scale-110 transition-transform" />
+                )}
+              </motion.div>
+              <span className="text-sm font-semibold">{isDownloading ? "جاري..." : "CV"}</span>
+
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
+                animate={{
+                  x: ["-100%", "100%"],
+                }}
+                transition={{
+                  duration: 0.5,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                }}
+              />
+            </motion.button>
+
             {/* Mobile Menu Button */}
             <motion.button
               className="md:hidden p-2 rounded-lg hover:bg-white/10 text-white"
@@ -306,7 +384,7 @@ const Portfolio = () => {
                 transition={{ delay: 0.3 }}
                 className="text-xl md:text-2xl text-white/90 mb-4"
               >
-                {portfolioData.personal.title}
+                {personalInfo.title}
               </motion.p>
               
               <motion.p
@@ -315,7 +393,7 @@ const Portfolio = () => {
                 transition={{ delay: 0.5 }}
                 className="text-lg text-white/70 mb-6 max-w-2xl mx-auto lg:mx-0"
               >
-                {portfolioData.personal.subtitle}
+                {personalInfo.subtitle}
               </motion.p>
 
               <motion.div
@@ -388,7 +466,7 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.9 }}
                 >
                   <Button
-                    onClick={() => window.open(`https://wa.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     size="lg"
                     className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25"
                   >
@@ -404,7 +482,7 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.9 }}
                 >
                   <Button
-                    onClick={() => window.open(`https://t.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    onClick={() => window.open(`https://t.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     size="lg"
                     className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
                   >
@@ -478,7 +556,7 @@ const Portfolio = () => {
                   }}
                 >
                   <img
-                    src={portfolioData.personal.image}
+                    src={personalInfo.image.url}
                     alt="Laith Alskaf"
                     className="w-full h-full object-cover"
                   />
@@ -629,7 +707,7 @@ const Portfolio = () => {
               </motion.div>
             </motion.h2>
             <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
-              {portfolioData.personal.bio}
+              {personalInfo.bio}
             </p>
           </motion.div>
 
@@ -645,7 +723,7 @@ const Portfolio = () => {
                 Skills & Technologies
               </h3>
               <div className="space-y-6">
-                {portfolioData.skills.map((skill, index) => (
+                {skills.map((skill, index) => (
                   <div key={index} className="space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-white font-medium">{skill.name}</span>
@@ -691,7 +769,7 @@ const Portfolio = () => {
                 <Zap className="text-purple-400" size={24} />
                 Experience
               </h3>
-              {portfolioData.experiences.map((exp, index) => (
+              {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.02 }}
@@ -701,7 +779,7 @@ const Portfolio = () => {
                     <CardHeader>
                       <CardTitle className="text-lg text-white">{exp.position}</CardTitle>
                       <CardDescription className="text-purple-300">
-                        {exp.company} • {exp.duration}
+                        {exp.company} â€¢ {exp.duration}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -744,7 +822,7 @@ const Portfolio = () => {
     </motion.div>
 
     <div className="grid md:grid-cols-2 gap-12">
-      {portfolioData.education.map((edu, index) => (
+      {education.map((edu, index) => (
         <motion.div
           key={index}
           whileHover={{ scale: 1.02 }}
@@ -754,7 +832,7 @@ const Portfolio = () => {
             <CardHeader>
               <CardTitle className="text-lg text-white">{edu.degree}</CardTitle>
               <CardDescription className="text-purple-300">
-                {edu.institution} • {edu.year}
+                {edu.institution} â€¢ {edu.year}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -808,15 +886,7 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioData.projects.map((project, index) => (
-              <ProjectCard 
-                key={project.id} 
-                project={project} 
-                index={index} 
-              />
-            ))}
-          </div>
+          <ProjectsShowcase />
         </div>
       </section>
       {/* CERTIFICATES  Section */}
@@ -862,7 +932,7 @@ const Portfolio = () => {
     </motion.div>
 
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {portfolioData.certificates.map((cert, index) => (
+      {certificates.map((cert, index) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
@@ -1017,21 +1087,21 @@ const Portfolio = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <Mail className="text-purple-400" size={24} />
-                  <span className="text-white">{portfolioData.personal.email}</span>
+                  <span className="text-white">{personalInfo.contact.email}</span>
                 </motion.div>
                 <motion.div 
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
                   <Phone className="text-green-400" size={24} />
-                  <span className="text-white">{portfolioData.personal.phone}</span>
+                  <span className="text-white">{personalInfo.contact.phone}</span>
                 </motion.div>
                 <motion.div 
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
                   <MapPin className="text-pink-400" size={24} />
-                  <span className="text-white">{portfolioData.personal.location}</span>
+                  <span className="text-white">{personalInfo.contact.location}</span>
                 </motion.div>
               </div>
               
@@ -1044,7 +1114,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(portfolioData.personal.github, '_blank')}
+                    onClick={() => window.open(personalInfo.social.github, '_blank')}
                     className="w-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
                   >
                     <Github size={20} className="mr-2" />
@@ -1059,7 +1129,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(portfolioData.personal.linkedin, '_blank')}
+                    onClick={() => window.open(personalInfo.social.linkedin, '_blank')}
                     className="w-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
                   >
                     <Linkedin size={20} className="mr-2" />
@@ -1078,7 +1148,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(`https://wa.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     className="w-full bg-gradient-to-r from-green-500/20 to-green-600/20 border-green-400/50 text-white hover:from-green-500/30 hover:to-green-600/30 transition-all duration-300"
                   >
                     <MessageCircle size={20} className="mr-2" />
@@ -1093,7 +1163,7 @@ const Portfolio = () => {
                   <Button 
                     variant="outline" 
                     size="lg"
-                    onClick={() => window.open(`https://t.me/${portfolioData.personal.phone.replace('+', '')}`, '_blank')}
+                    onClick={() => window.open(`https://t.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     className="w-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-blue-600/30 transition-all duration-300"
                   >
                     <Send size={20} className="mr-2" />
@@ -1209,7 +1279,7 @@ const Portfolio = () => {
               repeat: Infinity,
             }}
           >
-            © 2024 Laith. Built with React and lots of{' '}
+            Â© 2024 Laith. Built with React and lots of{' '}
             <motion.span
               animate={{
                 color: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'],
@@ -1219,7 +1289,7 @@ const Portfolio = () => {
                 repeat: Infinity,
               }}
             >
-              ☕
+              â˜•
             </motion.span>
           </motion.p>
         </div>
@@ -1229,3 +1299,8 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+
+
+
+
