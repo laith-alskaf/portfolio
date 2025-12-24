@@ -27,6 +27,13 @@
     proficiency: 85,
     description: "Strong proficiency in Dart programming language"
   },
+    {
+  name: "Python",
+  level: 90,
+  category: "Language",
+  proficiency: 90,
+  description: "Advanced Python development with async programming and clean architecture"
+},
   {
     name: "MVC & MVVM",
     level: 90,
@@ -110,12 +117,55 @@
     category: "Tools",
     proficiency: 30,
     description: "Basic containerization knowledge"
-  }
+  },
+
+{
+  name: "Telegram Bot API",
+  level: 85,
+  category: "Backend",
+  proficiency: 85,
+  description: "Building interactive Telegram bots with python-telegram-bot library"
+},
+{
+  name: "Google APIs (Drive & Sheets)",
+  level: 80,
+  category: "Backend",
+  proficiency: 80,
+  description: "Integration with Google Drive and Sheets for file management and automation"
+},
+{
+  name: "Meta Graph API",
+  level: 70,
+  category: "Backend",
+  proficiency: 70,
+  description: "Social media automation for Facebook and Instagram"
+},
+{
+  name: "Motor (Async MongoDB)",
+  level: 80,
+  category: "Backend",
+  proficiency: 80,
+  description: "Asynchronous MongoDB operations with Motor driver"
+},
+{
+  name: "APScheduler",
+  level: 75,
+  category: "Backend",
+  proficiency: 75,
+  description: "Task scheduling and automation in Python applications"
+},
+{
+  name: "Pydantic",
+  level: 80,
+  category: "Backend",
+  proficiency: 80,
+  description: "Data validation and settings management with Pydantic"
+}
 ];
 
 export const skillCategories = [
   { name: "Mobile", count: 3 },
-  { name: "Backend", count: 5 },
-  { name: "Language", count: 2 },
+  { name: "Backend", count: 11 },
+  { name: "Language", count: 3 },
   { name: "Tools", count: 4 }
 ];
