@@ -1,28 +1,53 @@
-﻿import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Menu, X, Sparkles, Code, Zap, Star, MessageCircle,
+﻿import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  ExternalLink,
   Send,
+  ChevronDown,
+  Code2,
+  Briefcase,
+  Award,
+  Menu,
+  X,
   Download,
-  FileText } from 'lucide-react';
+  Calendar,
+  MapPinIcon,
+  Users,
+  Building2,
+  ArrowRight,
+  Sparkles,
+  Star,
+  Code,
+  Zap,
+  MessageCircle,
+  FileText,
+} from "lucide-react";
 import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Badge } from './ui/badge';
 import { useToast } from '../hooks/use-toast';
 // import { portfolioData, handleContactSubmission } from '../data/portfolioData';
-import { 
-  personalInfo, 
-  projects, 
+import {
+  personalInfo,
+  projects,
   skills,
   education,
   certificates,
-  experiences 
+  experiences
 } from '../data/index';
 import ProjectsShowcase from './ProjectsShowcase';
 // import ProjectCard from './ProjectCard';
 
 const Portfolio = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -51,21 +76,21 @@ const Portfolio = () => {
     y: Math.random() * 100,
   }));
 
-  // Skill colors
+  // Skill colors - Teal Professional Theme
   const skillColors = {
-    Mobile: 'from-purple-500 to-pink-500',
-    Language: 'from-blue-500 to-cyan-500',
-    Web: 'from-green-500 to-teal-500',
-    Backend: 'from-orange-500 to-red-500',
-    Tools: 'from-yellow-500 to-orange-500',
-    Design: 'from-indigo-500 to-purple-500',
+    Mobile: 'from-primary-500 to-primary-600',
+    Language: 'from-primary-400 to-cyan-500',
+    Web: 'from-cyan-500 to-primary-500',
+    Backend: 'from-primary-600 to-primary-700',
+    Tools: 'from-accent to-yellow-500',
+    Design: 'from-primary-500 to-cyan-400',
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const sections = ['home', 'about', 'education', 'projects', 'certificates', 'contact'];
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -90,7 +115,7 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-    const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -124,7 +149,7 @@ const Portfolio = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const result = await handleContactSubmission(formData);
       if (result.success) {
@@ -146,7 +171,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[hsl(217,54%,11%)] via-[hsl(217,54%,16%)] to-[hsl(184,65%,15%)] relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Orbs */}
@@ -156,8 +181,8 @@ const Portfolio = () => {
             className="absolute w-4 h-4 rounded-full"
             style={{
               background: `linear-gradient(45deg, 
-                ${['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'][element.id % 6]}, 
-                ${['#ff8e8e', '#6ee8e0', '#67c7e8', '#b8d8c7', '#ffefc4', '#e8b8e8'][element.id % 6]}
+                ${['#20c997', '#1aa179', '#45d9b8', '#148c6b', '#6fe4c7', '#0f6b52'][element.id % 6]}, 
+                ${['#3dd5ab', '#25b488', '#5ee0c5', '#1a9d7a', '#82e8d0', '#16825e'][element.id % 6]}
               )`,
               left: `${element.x}%`,
               top: `${element.y}%`,
@@ -178,13 +203,13 @@ const Portfolio = () => {
         ))}
 
         {/* Gradient Mesh */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 animate-pulse" />
-        
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-primary-400/5 to-accent/5 animate-pulse" />
+
         {/* Interactive Mouse Follower */}
         <motion.div
           className="absolute w-96 h-96 rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(139, 69, 219, 0.1) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(32, 201, 151, 0.12) 0%, transparent 70%)',
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
           }}
@@ -201,14 +226,14 @@ const Portfolio = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="font-bold text-xl text-white relative"
+              className="font-heading font-bold text-xl text-white relative"
             >
               <span className="relative z-10">Laith Alskaf</span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg blur-lg opacity-30"
+                className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg blur-lg opacity-30"
                 animate={{
                   scale: [1, 1.1, 1],
                 }}
@@ -218,25 +243,24 @@ const Portfolio = () => {
                 }}
               />
             </motion.div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {sections.map((section) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all duration-300 relative px-3 py-2 ${
-                    activeSection === section
-                      ? 'text-white'
-                      : 'text-white/70 hover:text-white'
-                  }`}
+                  className={`capitalize transition-all duration-300 relative px-3 py-2 ${activeSection === section
+                    ? 'text-white'
+                    : 'text-white/70 hover:text-white'
+                    }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {section}
                   {activeSection === section && (
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg -z-10"
+                      className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg -z-10"
                       layoutId="activeSection"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -247,7 +271,7 @@ const Portfolio = () => {
               ))}
             </div>
 
-                        {/* CV Download Button - Desktop */}
+            {/* CV Download Button - Desktop */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -347,11 +371,11 @@ const Portfolio = () => {
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 relative">
                   Hi, I'm <span className="relative">
-                    <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent">
                       Laith
                     </span>
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 rounded-lg blur-xl opacity-20"
+                      className="absolute inset-0 bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 rounded-lg blur-xl opacity-20"
                       animate={{
                         scale: [1, 1.1, 1],
                         opacity: [0.2, 0.3, 0.2],
@@ -377,7 +401,7 @@ const Portfolio = () => {
                   <Sparkles size={32} className="text-yellow-400" />
                 </motion.div>
               </motion.div>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -386,7 +410,7 @@ const Portfolio = () => {
               >
                 {personalInfo.title}
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -407,7 +431,7 @@ const Portfolio = () => {
                     key={skill}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-400/30 text-white text-sm font-medium"
+                    className="px-4 py-2 bg-gradient-to-r from-primary-500/20 to-primary-600/20 backdrop-blur-sm rounded-full border border-primary-400/30 text-white text-sm font-medium"
                   >
                     {skill}
                   </motion.div>
@@ -420,17 +444,17 @@ const Portfolio = () => {
                 transition={{ delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <Button 
+                <Button
                   onClick={() => scrollToSection('projects')}
                   size="lg"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
+                  className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-500/25 relative overflow-hidden group"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Zap size={20} />
                     View Projects
                   </span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     animate={{
                       backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                     }}
@@ -440,12 +464,12 @@ const Portfolio = () => {
                     }}
                   />
                 </Button>
-                
-                <Button 
+
+                <Button
                   onClick={() => scrollToSection('contact')}
                   variant="outline"
                   size="lg"
-                  className="bg-transparent border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:border-purple-400/50"
+                  className="bg-transparent border-2 border-white/20 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:border-primary-400/50"
                 >
                   <span className="flex items-center gap-2">
                     <Mail size={20} />
@@ -476,7 +500,7 @@ const Portfolio = () => {
                     </span>
                   </Button>
                 </motion.div>
-                
+
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -566,7 +590,7 @@ const Portfolio = () => {
 
                 {/* Decorative Elements */}
                 <motion.div
-                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-80 blur-md"
+                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full opacity-80 blur-md"
                   animate={{
                     scale: [1, 1.2, 1],
                     rotate: [0, 180, 360],
@@ -577,7 +601,7 @@ const Portfolio = () => {
                   }}
                 />
                 <motion.div
-                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full opacity-80 blur-md"
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-cyan-500 to-primary-600 rounded-full opacity-80 blur-md"
                   animate={{
                     scale: [1.2, 1, 1.2],
                     rotate: [360, 180, 0],
@@ -590,7 +614,7 @@ const Portfolio = () => {
 
                 {/* Floating Code Icon */}
                 <motion.div
-                  className="absolute top-8 -left-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full p-4 shadow-lg"
+                  className="absolute top-8 -left-8 bg-gradient-to-br from-accent to-yellow-500 rounded-full p-4 shadow-lg"
                   animate={{
                     y: [0, -15, 0],
                     rotate: [0, 360],
@@ -605,7 +629,7 @@ const Portfolio = () => {
 
                 {/* Floating Zap Icon */}
                 <motion.div
-                  className="absolute bottom-8 -right-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full p-4 shadow-lg"
+                  className="absolute bottom-8 -right-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full p-4 shadow-lg"
                   animate={{
                     y: [0, 15, 0],
                     rotate: [0, -360],
@@ -620,7 +644,7 @@ const Portfolio = () => {
               </div>
             </motion.div>
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -643,10 +667,10 @@ const Portfolio = () => {
             </motion.div>
           </motion.div>
         </div>
-        
+
         {/* Decorative Elements */}
         <motion.div
-          className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-20 blur-xl"
+          className="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full opacity-20 blur-xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
@@ -670,8 +694,8 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
+      <section id="about" className="py-20 bg-gradient-to-br from-[hsl(217,54%,16%)] via-[hsl(184,45%,20%)] to-[hsl(217,51%,20%)] relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-accent/5 to-primary-400/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -679,7 +703,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
               animate={{
                 backgroundPosition: ['0%', '100%', '0%'],
@@ -689,7 +713,7 @@ const Portfolio = () => {
                 repeat: Infinity,
               }}
             >
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent">
                 About Me
               </span>
               <motion.div
@@ -711,50 +735,79 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Star className="text-yellow-400" size={24} />
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Star className="text-accent" size={20} />
                 Skills & Technologies
               </h3>
-              <div className="space-y-6">
+
+              {/* Compact Card-based Skills Grid */}
+              <div className="grid grid-cols-2 gap-3">
                 {skills.map((skill, index) => (
-                  <div key={index} className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-white font-medium">{skill.name}</span>
-                      <Badge 
-                        variant="outline" 
-                        className={`text-xs bg-gradient-to-r ${skillColors[skill.category]} text-white border-0`}
-                      >
-                        {skill.category}
-                      </Badge>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.03, y: -3 }}
+                    className="group relative"
+                  >
+                    <div className={`relative p-3 rounded-lg bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 hover:border-primary-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 overflow-hidden`}>
+                      {/* Animated Background Gradient */}
+                      <div className={`absolute inset-0 bg-gradient-to-r ${skillColors[skill.category]} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+
+                      {/* Content */}
+                      <div className="relative z-10 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="font-semibold text-white text-xs">{skill.name}</span>
+                          <Badge
+                            variant="outline"
+                            className={`text-[10px] bg-gradient-to-r ${skillColors[skill.category]} text-white border-0 px-1.5 py-0`}
+                          >
+                            {skill.category}
+                          </Badge>
+                        </div>
+
+                        {/* Compact Skill Level Indicator */}
+                        <div className="flex items-center gap-2">
+                          <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              whileInView={{ width: `${skill.level}%` }}
+                              transition={{ duration: 1.5, delay: index * 0.1 }}
+                              className={`h-full rounded-full bg-gradient-to-r ${skillColors[skill.category]} relative`}
+                            >
+                              {/* Shimmer effect */}
+                              <motion.div
+                                className="absolute inset-0 bg-white/30 rounded-full"
+                                animate={{ x: ['-100%', '100%'] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                              />
+                            </motion.div>
+                          </div>
+                          <span className={`text-[10px] font-bold bg-gradient-to-r ${skillColors[skill.category]} bg-clip-text text-transparent`}>
+                            {skill.level}%
+                          </span>
+                        </div>
+
+                        {/* Skill Description */}
+                        {skill.description && (
+                          <p className="text-[10px] text-white/60 leading-relaxed pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            {skill.description}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Subtle Corner Decoration */}
+                      <div className={`absolute top-0 right-0 w-12 h-12 bg-gradient-to-br ${skillColors[skill.category]} opacity-5 rounded-bl-full`} />
                     </div>
-                    <div className="w-full bg-white/10 rounded-full h-3 relative overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1.5, delay: index * 0.1 }}
-                        className={`h-3 rounded-full bg-gradient-to-r ${skillColors[skill.category]} relative`}
-                      >
-                        <motion.div
-                          className="absolute inset-0 bg-white/20 rounded-full"
-                          animate={{
-                            x: ['-100%', '100%'],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: index * 0.2,
-                          }}
-                        />
-                      </motion.div>
-                    </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -763,10 +816,10 @@ const Portfolio = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Zap className="text-purple-400" size={24} />
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <Zap className="text-primary-400" size={20} />
                 Experience
               </h3>
               {experiences.map((exp, index) => (
@@ -775,15 +828,15 @@ const Portfolio = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
-                    <CardHeader>
-                      <CardTitle className="text-lg text-white">{exp.position}</CardTitle>
-                      <CardDescription className="text-purple-300">
-                        {exp.company} â€¢ {exp.duration}
+                  <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-primary-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-base text-white">{exp.position}</CardTitle>
+                      <CardDescription className="text-primary-300 text-sm">
+                        {exp.company} • {exp.duration}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-white/80">{exp.description}</p>
+                    <CardContent className="pt-0">
+                      <p className="text-white/70 text-xs">{exp.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -793,59 +846,7 @@ const Portfolio = () => {
         </div>
       </section>
       {/* EDUCATION  Section */}
-<section id="education" className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
-  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-16"
-    >
-      <motion.h2 
-        className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
-        animate={{
-          backgroundPosition: ['0%', '100%', '0%'],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-      >
-        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          Education
-        </span>
-      </motion.h2>
-      <p className="text-lg text-white/80 max-w-2xl mx-auto">
-        A summary of my academic background and achievements.
-      </p>
-    </motion.div>
-
-    <div className="grid md:grid-cols-2 gap-12">
-      {education.map((edu, index) => (
-        <motion.div
-          key={index}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
-            <CardHeader>
-              <CardTitle className="text-lg text-white">{edu.degree}</CardTitle>
-              <CardDescription className="text-purple-300">
-                {edu.institution} â€¢ {edu.year}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-white/80">{edu.description}</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative">
+      <section id="education" className="py-20 bg-gradient-to-br from-[hsl(217,54%,18%)] via-[hsl(184,45%,22%)] to-[hsl(217,51%,22%)] relative">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -854,7 +855,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
               animate={{
                 backgroundPosition: ['0%', '100%', '0%'],
@@ -864,173 +865,107 @@ const Portfolio = () => {
                 repeat: Infinity,
               }}
             >
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent">
+                Education
+              </span>
+            </motion.h2>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              A summary of my academic background and achievements.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-primary-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-white">{edu.degree}</CardTitle>
+                    <CardDescription className="text-primary-300">
+                      {edu.institution} â€¢ {edu.year}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-white/80">{edu.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Projects Section */}
+      <section id="projects" className="py-20 bg-gradient-to-br from-[hsl(184,45%,18%)] via-[hsl(217,54%,20%)] to-[hsl(184,45%,22%)] relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-400/5 via-accent/5 to-primary-500/5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-white mb-4 relative inline-block"
+              animate={{
+                backgroundPosition: ['0%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
+              <span className="bg-gradient-to-r from-cyan-400 via-primary-500 to-primary-600 bg-clip-text text-transparent">
                 Featured Projects
               </span>
               <motion.div
                 className="absolute -top-2 -right-8"
                 animate={{
-                  rotate: [0, -360],
+                  rotate: [0, 360],
                   scale: [1, 1.2, 1],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                 }}
               >
-                <Sparkles size={24} className="text-pink-400" />
+                <Briefcase size={20} className="text-accent" />
               </motion.div>
             </motion.h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and experience
+            <p className="text-white/70 text-sm max-w-2xl mx-auto">
+              Explore my portfolio of innovative projects showcasing expertise in mobile and web development
             </p>
           </motion.div>
 
-          <ProjectsShowcase />
+          {/* Responsive Projects Grid - Show only 3 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ProjectsShowcase limit={3} showFilters={false} />
+          </div>
+
+          {/* View All Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mt-12"
+          >
+            <Button
+              onClick={() => navigate('/projects')}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25"
+            >
+              <span className="flex items-center gap-2">
+                View All Projects
+                <ArrowRight size={18} />
+              </span>
+            </Button>
+          </motion.div>
         </div>
       </section>
       {/* CERTIFICATES  Section */}
-<section id="certificates" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
-  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-16"
-    >
-      <motion.h2 
-        className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
-        animate={{
-          backgroundPosition: ['0%', '100%', '0%'],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-      >
-        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          Certificates
-        </span>
-        <motion.div
-          className="absolute -top-2 -right-8"
-          animate={{
-            rotate: [0, 360],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-          }}
-        >
-          <Star size={24} className="text-yellow-400" />
-        </motion.div>
-      </motion.h2>
-      <p className="text-lg text-white/80 max-w-2xl mx-auto">
-        My professional certifications and achievements in software development.
-      </p>
-    </motion.div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {certificates.map((cert, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          whileHover={{ y: -10, scale: 1.02 }}
-          className="group relative"
-        >
-          <Card className="h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden">
-            {/* Certificate Image */}
-            <div className="aspect-video bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 relative overflow-hidden">
-              <img 
-                src={cert.image} 
-                alt={cert.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              
-              {/* View Certificate Button */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Button
-                  size="sm"
-                  className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300"
-                  onClick={() => window.open(cert.image, '_blank')}
-                >
-                  <ExternalLink size={16} className="mr-2" />
-                  View Certificate
-                </Button>
-              </motion.div>
-              
-              {/* Certificate Badge */}
-              <div className="absolute top-4 right-4">
-                <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white border-0">
-                  {cert.year}
-                </Badge>
-              </div>
-            </div>
-            
-            <CardHeader className="relative z-10">
-              <CardTitle className="text-lg text-white group-hover:text-purple-300 transition-colors duration-300">
-                {cert.title}
-              </CardTitle>
-              <CardDescription className="text-purple-300 flex items-center gap-2">
-                <Star size={16} className="text-yellow-400" />
-                {cert.issuer}
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent className="space-y-4 relative z-10">
-              <p className="text-white/80 text-sm leading-relaxed">
-                {cert.description}
-              </p>
-              
-              {/* Credential ID */}
-              {cert.credential && (
-                <div className="pt-2 border-t border-white/10">
-                  <p className="text-xs text-white/60">
-                    Credential ID: <span className="text-purple-300">
-                      {/* {cert.credential} */}
-                      </span>
-                  </p>
-                </div>
-              )}
-              
-              {/* Action Buttons */}
-              <div className="flex gap-2 pt-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
-                  onClick={() => window.open(cert.image, '_blank')}
-                >
-                  <ExternalLink size={14} className="mr-2" />
-                  View
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
-                  onClick={() => navigator.clipboard.writeText(cert.credential || cert.title)}
-                >
-                  <Code size={14} className="mr-2" />
-                  Copy ID
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
+      <section id="certificates" className="py-20 bg-gradient-to-br from-[hsl(217,54%,20%)] via-[hsl(184,45%,24%)] to-[hsl(217,51%,24%)] relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-accent/5 to-cyan-500/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1038,7 +973,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
               animate={{
                 backgroundPosition: ['0%', '100%', '0%'],
@@ -1048,7 +983,146 @@ const Portfolio = () => {
                 repeat: Infinity,
               }}
             >
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent">
+                Certificates
+              </span>
+              <motion.div
+                className="absolute -top-2 -right-8"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+              >
+                <Star size={24} className="text-yellow-400" />
+              </motion.div>
+            </motion.h2>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              My professional certifications and achievements in software development.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {certificates.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group relative"
+              >
+                <Card className="h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20 hover:border-primary-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden">
+                  {/* Certificate Image */}
+                  <div className="aspect-video bg-gradient-to-br from-primary-500 via-primary-600 to-cyan-500 relative overflow-hidden">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+
+                    {/* View Certificate Button */}
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <Button
+                        size="sm"
+                        className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 transition-all duration-300"
+                        onClick={() => window.open(cert.image, '_blank')}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        View Certificate
+                      </Button>
+                    </motion.div>
+
+                    {/* Certificate Badge */}
+                    <div className="absolute top-4 right-4">
+                      <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white border-0">
+                        {cert.year}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <CardHeader className="relative z-10">
+                    <CardTitle className="text-lg text-white group-hover:text-purple-300 transition-colors duration-300">
+                      {cert.title}
+                    </CardTitle>
+                    <CardDescription className="text-purple-300 flex items-center gap-2">
+                      <Star size={16} className="text-yellow-400" />
+                      {cert.issuer}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4 relative z-10">
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      {cert.description}
+                    </p>
+
+                    {/* Credential ID */}
+                    {cert.credential && (
+                      <div className="pt-2 border-t border-white/10">
+                        <p className="text-xs text-white/60">
+                          Credential ID: <span className="text-purple-300">
+                            {/* {cert.credential} */}
+                          </span>
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 pt-4">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 bg-gradient-to-r from-primary-500/20 to-primary-600/20 border-primary-400/50 text-white hover:from-primary-500/30 hover:to-primary-600/30 transition-all duration-300"
+                        onClick={() => window.open(cert.image, '_blank')}
+                      >
+                        <ExternalLink size={14} className="mr-2" />
+                        View
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
+                        onClick={() => navigator.clipboard.writeText(cert.credential || cert.title)}
+                      >
+                        <Code size={14} className="mr-2" />
+                        Copy ID
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-[hsl(184,45%,16%)] via-[hsl(217,54%,18%)] to-[hsl(184,45%,20%)] relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-400/5 via-accent/5 to-primary-500/5" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative inline-block"
+              animate={{
+                backgroundPosition: ['0%', '100%', '0%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
+              <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent">
                 Get In Touch
               </span>
               <motion.div
@@ -1082,21 +1156,21 @@ const Portfolio = () => {
                 Let's Connect
               </h3>
               <div className="space-y-6">
-                <motion.div 
+                <motion.div
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <Mail className="text-purple-400" size={24} />
+                  <Mail className="text-primary-400" size={24} />
                   <span className="text-white">{personalInfo.contact.email}</span>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
                   <Phone className="text-green-400" size={24} />
                   <span className="text-white">{personalInfo.contact.phone}</span>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="flex items-center space-x-4 p-4 bg-gradient-to-r from-white/10 to-white/5 rounded-lg backdrop-blur-sm border border-white/20 hover:border-purple-400/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
@@ -1104,18 +1178,18 @@ const Portfolio = () => {
                   <span className="text-white">{personalInfo.contact.location}</span>
                 </motion.div>
               </div>
-              
+
               <div className="flex space-x-4 pt-4">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     onClick={() => window.open(personalInfo.social.github, '_blank')}
-                    className="w-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/50 text-white hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-primary-500/20 to-primary-600/20 border-primary-400/50 text-white hover:from-primary-500/30 hover:to-primary-600/30 transition-all duration-300"
                   >
                     <Github size={20} className="mr-2" />
                     GitHub
@@ -1126,8 +1200,8 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     onClick={() => window.open(personalInfo.social.linkedin, '_blank')}
                     className="w-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-cyan-500/30 transition-all duration-300"
@@ -1145,8 +1219,8 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     onClick={() => window.open(`https://wa.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     className="w-full bg-gradient-to-r from-green-500/20 to-green-600/20 border-green-400/50 text-white hover:from-green-500/30 hover:to-green-600/30 transition-all duration-300"
@@ -1160,8 +1234,8 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.95 }}
                   className="flex-1"
                 >
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="lg"
                     onClick={() => window.open(`https://t.me/${personalInfo.contact.phone.replace('+', '')}`, '_blank')}
                     className="w-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 border-blue-400/50 text-white hover:from-blue-500/30 hover:to-blue-600/30 transition-all duration-300"
@@ -1191,7 +1265,7 @@ const Portfolio = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-primary-400/50 transition-all duration-300"
                   />
                 </motion.div>
                 <motion.div
@@ -1205,7 +1279,7 @@ const Portfolio = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-primary-400/50 transition-all duration-300"
                   />
                 </motion.div>
                 <motion.div
@@ -1219,17 +1293,17 @@ const Portfolio = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-purple-400/50 transition-all duration-300 resize-none"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-primary-400/50 transition-all duration-300 resize-none"
                   />
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 relative overflow-hidden group"
+                    className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/25 relative overflow-hidden group"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       {isSubmitting ? (
@@ -1249,7 +1323,7 @@ const Portfolio = () => {
                       )}
                     </span>
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       animate={{
                         backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                       }}
@@ -1269,7 +1343,7 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className="bg-black/50 backdrop-blur-md text-white py-8 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.p 
+          <motion.p
             className="text-white/70"
             animate={{
               opacity: [0.7, 1, 0.7],
