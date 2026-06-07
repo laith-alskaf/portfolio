@@ -105,7 +105,7 @@ export const projects = [
     },
     projectDetails: {
       type: "Commercial Product",
-      duration: { start: "2025-11", end: "2026-06", months: 7 },
+      duration: { start: "", end: "2026-06", months: 1 },
       company: "ATMTA Technological Solutions",
       client: "Passengers & Travelers",
       team: { size: 2, role: "Software Engineer" },
@@ -175,7 +175,7 @@ export const projects = [
     },
     projectDetails: {
       type: "Commercial Product",
-      duration: { start: "2025-11", end: "2026-06", months: 7 },
+      duration: { start: "", end: "2026-06", months: 2 },
       company: "ATMTA Technological Solutions",
       client: "Transport Companies & Fleet Managers",
       team: { size: 2, role: "Software Engineer" },
