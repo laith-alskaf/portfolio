@@ -6,15 +6,6 @@
     description: "Completed comprehensive software engineering program focusing on mobile development, backend systems, and modern software architecture.",
     status: "Completed"
   }
-  ,
-  {
-    degree: "Master's in Software Engineering",
-    institution: "University of Damascus",
-    year: "2024-2027",
-    description:
-      "Currently pursuing a master's program specializing in advanced software engineering, intelligent systems, and modern development methodologies.",
-    status: "In Progress",
-  },
 
 ];
 
