@@ -178,7 +178,20 @@ export const projects = [
     ],
     images: {
       thumbnail: "/api/placeholder/400/250",
-      gallery: ["/api/placeholder/600/400"],
+      gallery: [
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821483/logo_cjpaw3.png",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821674/splash_d4z1m1.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821523/WhatsApp_Image_2026-06-07_at_11.33.12_AM52414_oev8pf.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821622/dash1_qm42yt.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821647/dash2_c10ggn.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780821768/search-trip_q9uy4f.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823360/bus-layout_n0rfxj.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823413/info-ticket1_vut75c.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823423/info-ticket2_bot5nh.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823443/create_bus_goaxqq.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823456/create-trip_p9mf8a.jpg",
+
+      ],
       color: "indigo",
     },
     links: {
