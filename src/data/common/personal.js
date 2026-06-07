@@ -1,4 +1,4 @@
-﻿export const personalInfo = {
+export const personalInfo = {
   name: "Eng Laith Alskaf",
   firstName: "Laith",
   lastName: "Alskaf",

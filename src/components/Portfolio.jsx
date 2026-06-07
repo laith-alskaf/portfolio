@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
@@ -34,7 +34,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useToast } from '../hooks/use-toast';
-// import { portfolioData, handleContactSubmission } from '../data/portfolioData';
+import { handleContactSubmission } from '../data/portfolioData';
 import {
   personalInfo,
   projects,
@@ -536,7 +536,7 @@ const Portfolio = () => {
                       repeat: Infinity,
                     }}
                   >
-                    3+
+                    4+
                   </motion.div>
                   <div className="text-sm text-white/60">Years Experience</div>
                 </div>
@@ -552,7 +552,7 @@ const Portfolio = () => {
                       delay: 0.5,
                     }}
                   >
-                    10+
+                    15+
                   </motion.div>
                   <div className="text-sm text-white/60">Projects Completed</div>
                 </div>

@@ -1,4 +1,25 @@
-﻿export const experiences = [
+export const experiences = [
+  {
+    id: 0,
+    company: "ATMTA Technological Solutions",
+    position: "Software Engineer",
+    duration: "Nov 2025 - Jun 2026",
+    startDate: "2025-11",
+    endDate: "2026-06",
+    current: false,
+    description: "Developed two Flutter-based transport platforms (Musafer & Masar), directed the company's official website creation using AI-driven development, established automated CI/CD deployment pipelines, and led client acquisition by pitching directly to transport companies.",
+    responsibilities: [
+      "Developed Musafer (passenger booking app) and Masar (transport ERP) with Clean Architecture and BLoC",
+      "Directed the design and creation of the ATMTA corporate website using AI-augmented development workflows",
+      "Designed and implemented automated CI/CD pipelines via GitHub Actions for code validation, production Android release builds (APK/AAB), and web build deployments",
+      "Configured secure automated deployment to Linux VPS servers using SSH, rsync, and PM2 process management",
+      "Led client acquisition by directly presenting and demonstrating the platform to transport companies",
+      "Engineered QR ticket scanning, Bluetooth thermal receipt printing, and real-time push notifications",
+      "Built multi-role access control (Super Admin, Supervisor, Booking Agent, Driver, Inspector)",
+      "Implemented bilingual (Arabic/English) localization with full RTL support across all products"
+    ],
+    technologies: ["Flutter", "Dart", "BLoC", "Dio", "GoRouter", "Firebase", "GitHub Actions", "CI/CD", "Linux VPS", "rsync", "PM2"]
+  },
   {
     id: 1,
     company: "YES for Online Services",

@@ -1,4 +1,4 @@
-﻿export const skills = [
+export const skills = [
   {
     name: "Flutter & Mobile Development",
     level: 95,
@@ -68,12 +68,19 @@
     category: "Tools",
     proficiency: 75,
     description: "Task scheduling and automation in applications"
-  }
+  },
+  {
+    name: "Supabase & BaaS",
+    level: 80,
+    category: "Backend",
+    proficiency: 80,
+    description: "Supabase PostgreSQL, Row Level Security (RLS), Edge Functions, Storage, and real-time subscriptions"
+  },
 ];
 
 export const skillCategories = [
   { name: "Mobile", count: 1 },
-  { name: "Backend", count: 5 },
+  { name: "Backend", count: 6 },
   { name: "Language", count: 1 },
   { name: "Tools", count: 3 }
 ];
