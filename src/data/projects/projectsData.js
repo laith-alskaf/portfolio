@@ -24,7 +24,7 @@ export const projects = [
       { name: "Edge Functions", category: "backend", level: "intermediate", proficiency: 75 },
     ],
     images: {
-      thumbnail: "/api/placeholder/400/250",
+      thumbnail: "https://res.cloudinary.com/debuadvrz/image/upload/v1780818463/background_agxoph.jpg",
       gallery: ["https://res.cloudinary.com/debuadvrz/image/upload/v1780818463/background_agxoph.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780819434/home1_prrnfv.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780819444/home_2_glf9ie.jpg",
@@ -107,8 +107,14 @@ export const projects = [
       { name: "GitHub Actions", category: "devops", level: "advanced", proficiency: 85 },
     ],
     images: {
-      thumbnail: "/api/placeholder/400/250",
-      gallery: ["/api/placeholder/600/400"],
+      thumbnail: "https://res.cloudinary.com/debuadvrz/image/upload/v1780823638/dsadadsada_iebspe.jpg",
+      gallery: [
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823638/dsadadsada_iebspe.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823632/login_hna4be.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823837/search-no_cjotqd.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823833/search-result_t6tjk5.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823835/history_y5yvhw.jpg",
+      ],
       color: "blue",
     },
     links: {
@@ -177,7 +183,7 @@ export const projects = [
       { name: "GitHub Actions", category: "devops", level: "advanced", proficiency: 85 },
     ],
     images: {
-      thumbnail: "/api/placeholder/400/250",
+      thumbnail: "https://res.cloudinary.com/debuadvrz/image/upload/v1780821483/logo_cjpaw3.png",
       gallery: [
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780821483/logo_cjpaw3.png",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780821674/splash_d4z1m1.jpg",
@@ -185,7 +191,7 @@ export const projects = [
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780821622/dash1_qm42yt.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780821647/dash2_c10ggn.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780821768/search-trip_q9uy4f.jpg",
-        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823360/bus-layout_n0rfxj.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780823880/bus-layout_jq1fbi.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780823413/info-ticket1_vut75c.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780823423/info-ticket2_bot5nh.jpg",
         "https://res.cloudinary.com/debuadvrz/image/upload/v1780823443/create_bus_goaxqq.jpg",
@@ -258,8 +264,8 @@ export const projects = [
       { name: "PM2", category: "devops", level: "advanced", proficiency: 70 },
     ],
     images: {
-      thumbnail: "/api/placeholder/400/250",
-      gallery: ["/api/placeholder/600/400"],
+      thumbnail: "https://res.cloudinary.com/debuadvrz/image/upload/v1780823563/WhatsApp_Image_2026-05-17_at_10.25.26_PM_w4yawr.jpg",
+      gallery: ["https://res.cloudinary.com/debuadvrz/image/upload/v1780823563/WhatsApp_Image_2026-05-17_at_10.25.26_PM_w4yawr.jpg"],
       color: "cyan",
     },
     links: {
