@@ -25,7 +25,21 @@ export const projects = [
     ],
     images: {
       thumbnail: "/api/placeholder/400/250",
-      gallery: ["/api/placeholder/600/400"],
+      gallery: ["https://res.cloudinary.com/debuadvrz/image/upload/v1780818463/background_agxoph.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819434/home1_prrnfv.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819444/home_2_glf9ie.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819508/categories_drtuxb.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819602/places-categories_yozzga.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819633/place-det-1_nsaf21.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819654/place-det-2_uvm85k.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819678/place-det-3_mcgpmx.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819703/services_iwd2gz.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819730/search1_ciub8b.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819749/search_2_lu3djq.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819778/admin_urpflw.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819794/setting1_jdi1tt.jpg",
+        "https://res.cloudinary.com/debuadvrz/image/upload/v1780819810/setting2_y4m0cu.jpg"
+      ],
       color: "teal",
     },
     links: {
