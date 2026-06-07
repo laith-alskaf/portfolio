@@ -76,7 +76,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 2,
+    priority: 3,
     shortDescription: "Smart bus ticket booking platform for passengers — ATMTA Technological Solutions",
     description: "○ Developed a smart bus ticket booking platform enabling passengers to search for intercity trips in real-time, select seats via an interactive seat map, and receive digital QR boarding passes with instant booking confirmations. ○ Implemented OTP-based secure authentication, complete trip history archiving, and push notifications for trip status updates and schedule changes, ensuring a seamless and reliable travel experience. ○ Designed with bilingual support (Arabic/English), responsive layouts across iOS, Android, and Web, and optimized performance for smooth navigation and fast search results.",
     technologies: [
@@ -145,7 +145,7 @@ export const projects = [
     category: "enterprise",
     status: "completed",
     featured: true,
-    priority: 3,
+    priority: 4,
     shortDescription: "Comprehensive transport operations ERP with 23+ feature modules — ATMTA Technological Solutions",
     description: "○ Developed a comprehensive transport operations ERP system with 23+ feature modules, enabling transport companies to manage offices, fleets, drivers, routes, trips, and pricing through a centralized admin dashboard. ○ Built multi-role access control (Super Admin, Supervisor, Booking Agent, Driver, Inspector) with QR ticket scanning, Bluetooth thermal receipt printing, and WhatsApp integration for efficient field operations. ○ Implemented financial and operational reporting dashboards, expense management, and station management to support data-driven decision-making and maximize operational efficiency.",
     technologies: [
@@ -217,7 +217,7 @@ export const projects = [
     category: "web",
     status: "completed",
     featured: true,
-    priority: 4,
+    priority: 2,
     shortDescription: "Professional bilingual corporate website — AI-Driven Development for ATMTA Technological Solutions",
     description: "○ Directed the creation of a professional bilingual (Arabic/English) corporate website for ATMTA Technological Solutions using AI-augmented development workflows, managing all content strategy, design direction, product positioning, and quality assurance. ○ The platform features seamless RTL/LTR transitions, dedicated product landing pages for Musafer and Masar, scroll-animated sections with Framer Motion micro-interactions, and a fully responsive design. ○ Delivered a production-grade, SEO-optimized platform with CI/CD pipeline deployment, WhatsApp integration, and contact forms — achieving professional results without prior Next.js experience through effective AI tool direction.",
     technologies: [
@@ -285,7 +285,7 @@ export const projects = [
     category: "ai-powered",
     status: "completed",
     featured: true,
-    priority: 1,
+    priority: 5,
     shortDescription: "AI-powered review management system with sentiment analysis",
     description: "○ Developed a full-stack AI-powered review management system that leverages Hugging Face models and DeepSeek LLM for sentiment analysis, quality scoring, and automated content generation. ○ Implemented webhook integration with Tally forms, real-time review processing with profanity/toxicity detection, and rich Telegram notifications. ○ Built comprehensive dashboards (Web + Flutter mobile app) with advanced filtering, interactive charts, export capabilities, and multi-language support (Arabic/English with RTL). ○ Designed using Clean Architecture principles (Domain/Application/Infrastructure/Presentation), BLoC pattern for state management, and Dependency Injection for maintainability and scalability.",
     technologies: [
@@ -385,7 +385,7 @@ export const projects = [
     category: "automation",
     status: "completed",
     featured: true,
-    priority: 1,
+    priority: 6,
     shortDescription: "Comprehensive training center management system with Telegram Bot, payment tracking, and social media automation",
     description: "○ Developed a production-ready training center management platform that streamlines course management, student registrations, and payment tracking through an intuitive Telegram Bot interface. ○ Implemented multi-language support (Arabic/English), admin approval workflows, Google Drive integration for course materials, and social media automation for Facebook & Instagram. ○ Designed with Clean Architecture principles, featuring domain-driven design with repositories, entities, and use cases, ensuring maintainability, scalability, and efficient operations for training center administrators.",
     technologies: [
@@ -456,7 +456,7 @@ export const projects = [
     category: "enterprise",
     status: "completed",
     featured: true,
-    priority: 1,
+    priority: 7,
     shortDescription: "Professional procurement management platform for enterprises",
     description: "○ Developed a full-stack procurement management system for enterprise operations, featuring a multi-role approval workflow (General Manager, Finance Manager, Procurement Manager, Assistant, Auditor). ○ Implemented modules for purchase requests, vendors, items, reports, and bilingual UI (Arabic/English). ○ Designed with clean architecture, scalable backend, and responsive frontend for both Windows and Android platforms, ensuring clarity ,maintainability, and efficient collaboration between departments.",
     technologies: [
@@ -539,7 +539,7 @@ export const projects = [
     category: "backend",
     status: "completed",
     featured: false,
-    priority: 2,
+    priority: 8,
     shortDescription: "Scalable and secure e-commerce backend system",
     description: "Scalable and secure e-commerce backend using Node.js, TypeScript, MongoDB, PostgreSQL, JWT, and Clean Architecture. Includes authentication, product management, wishlist, and Swagger/Postman documentation.",
     technologies: [
@@ -598,7 +598,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 3,
+    priority: 9,
     shortDescription: "Internal project for YES For Online Services - Enhanced team productivity by 30%",
     description: "Developed a Flutter-based desktop and mobile application for YES For Online Services that enhanced team productivity by 30% for over 20 employees on Windows and Android. This intuitive app streamlined task management by enabling seamless creation, assignment, and tracking of projects, offering a robust admin dashboard for monitoring performance. Featured real-time communication through WhatsApp-like chat powered by Socket.IO.",
     technologies: [
@@ -670,7 +670,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 4,
+    priority: 10,
     shortDescription: "Google Play Release - Dynamic system for ads, polls, and posts",
     description: "Contributed to the development of the Orbit section in the iDBOOK mobile app for YES For Online Services. Created a dynamic system to display ads, polls, and posts, reordered by weighted priorities to maximize user engagement. Implemented timer-based logic and integrated real-time updates for post reactions and views.",
     technologies: [
@@ -737,7 +737,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 5,
+    priority: 11,
     shortDescription: "QR code-based payment activation application",
     description: "Payment activation application that utilizes QR code scanning. Allows users to activate plans by scanning corresponding QR codes. Includes history feature to track paid plans, requires location activation and sufficient balance. Features login page and sends SMS messages for convenient mobile access.",
     technologies: [
@@ -798,7 +798,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 6,
+    priority: 12,
     shortDescription: "Graduation project - Parking and maintenance services",
     description: "Comprehensive app combining parking and maintenance services created to let users easily book spots and locate service centers, improving user experience and maintenance efficiency. Provides detailed administrator statistics to optimize operations while adhering to clean coding practices for improved maintainability and scalability.",
     technologies: [
@@ -882,7 +882,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: false,
-    priority: 7,
+    priority: 13,
     shortDescription: "Freelance project - Cross-platform food ordering",
     description: "A cross-platform food-ordering application with real-time order updates, secure payments, and location-based restaurant discovery. Includes user authentication, cart management, and live-tracked orders with a scalable, modular architecture that is easy to maintain and a simple user experience.",
     technologies: [
@@ -944,7 +944,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: true,
-    priority: 8,
+    priority: 14,
     shortDescription: "Training course project - Unified educational platform for national exams",
     description: "Developed as a final project at Darrebni Company to deliver a unified educational platform for Syrian students to prepare for the National Unified Exam. Collaborative project focusing on clean architecture, responsive user interface, and smooth navigation. Quality ensured through cross-checking and testing.",
     technologies: [
@@ -1016,7 +1016,7 @@ export const projects = [
     category: "mobile",
     status: "completed",
     featured: false,
-    priority: 9,
+    priority: 15,
     shortDescription: "University final year project - AI-powered health and wellness app",
     description: "A health application developed to encourage users to adopt healthier habits through smart reminders and wellness insights. Includes BMI calculations, health tips, FAQs, and an AI-powered assistant using ChatGPT 3.5 for personalized guidance, with focus on intuitive UX and accessibility.",
     technologies: [
