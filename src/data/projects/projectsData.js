@@ -6,7 +6,7 @@ export const projects = [
     id: 12,
     title: "Neighborhood Guide (دليل الضاحية)",
     category: "mobile",
-    status: "in-progress",
+    status: "completed",
     featured: true,
     priority: 1,
     shortDescription: "Offline-first community directory connecting residents with local services, businesses, and duty pharmacies",
@@ -50,7 +50,7 @@ export const projects = [
     },
     projectDetails: {
       type: "Personal Project",
-      duration: { start: "2025-06", end: "Present", months: 12 },
+      duration: { start: "2026-04", end: "Present", months: 1 },
       company: "Personal Project",
       client: "Local Community Residents",
       team: { size: 1, role: "Full Stack Developer" },
