@@ -80,10 +80,10 @@ const Portfolio = () => {
   const skillColors = {
     Mobile: 'from-primary-500 to-primary-600',
     Language: 'from-primary-400 to-cyan-500',
-    Web: 'from-cyan-500 to-primary-500',
+    Architecture: 'from-indigo-500 to-purple-500',
     Backend: 'from-primary-600 to-primary-700',
-    Tools: 'from-accent to-yellow-500',
-    Design: 'from-primary-500 to-cyan-400',
+    Frontend: 'from-cyan-500 to-primary-500',
+    DevOps: 'from-accent to-yellow-500',
   };
 
   useEffect(() => {
@@ -426,7 +426,7 @@ const Portfolio = () => {
                 transition={{ delay: 0.6 }}
                 className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
               >
-                {['Flutter', 'Node.js', 'Mobile Dev', 'Backend'].map((skill, index) => (
+                {['Flutter & Dart', 'Node.js & TypeScript', 'Clean Architecture', 'CI/CD & DevOps', 'AI-Augmented Engineering'].map((skill, index) => (
                   <motion.div
                     key={skill}
                     whileHover={{ scale: 1.05 }}
@@ -885,7 +885,7 @@ const Portfolio = () => {
                   <CardHeader>
                     <CardTitle className="text-lg text-white">{edu.degree}</CardTitle>
                     <CardDescription className="text-primary-300">
-                      {edu.institution} â€¢ {edu.year}
+                      {edu.institution} {edu.year}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

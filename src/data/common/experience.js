@@ -3,94 +3,95 @@ export const experiences = [
     id: 0,
     company: "ATMTA Technological Solutions",
     position: "Software Engineer",
-    duration: "Nov 2025 - Jun 2026",
+    duration: "Nov 2025 – Jun 2026",
     startDate: "2025-11",
     endDate: "2026-06",
     current: false,
-    description: "Developed two Flutter-based transport platforms (Musafer & Masar), directed the company's official website creation using AI-driven development, established automated CI/CD deployment pipelines, and led client acquisition by pitching directly to transport companies.",
+    type: "Remote",
+    description: "Developed and scaled two high-traffic Flutter applications (Musafer & Masar) using Clean Architecture and BLoC state management. Designed automated CI/CD pipelines, configured secure VPS deployments, and integrated enterprise hardware features. Managed the company's corporate website creation using AI-driven workflows and participated in client acquisition.",
     responsibilities: [
-      "Developed Musafer (passenger booking app) and Masar (transport ERP) with Clean Architecture and BLoC",
-      "Directed the design and creation of the ATMTA corporate website using AI-augmented development workflows",
-      "Designed and implemented automated CI/CD pipelines via GitHub Actions for code validation, production Android release builds (APK/AAB), and web build deployments",
-      "Configured secure automated deployment to Linux VPS servers using SSH, rsync, and PM2 process management",
-      "Led client acquisition by directly presenting and demonstrating the platform to transport companies",
-      "Engineered QR ticket scanning, Bluetooth thermal receipt printing, and real-time push notifications",
-      "Built multi-role access control (Super Admin, Supervisor, Booking Agent, Driver, Inspector)",
+      "Developed and scaled Musafer (passenger booking) and Masar (transport ERP with 23+ modules) using Clean Architecture, BLoC, and optimized RESTful API integrations via Dio",
+      "Designed and implemented GitHub Actions CI/CD workflows for automated code analysis (Linting/Static Analysis), production Android package compilation (signed APK/AAB via GitHub Secrets), and web deployments",
+      "Configured secure automated web delivery to Linux VPS servers using SSH and rsync, managing Next.js and web services gracefully using PM2 process manager",
+      "Integrated specialized hardware features: Bluetooth thermal receipt printing, QR code scanning, and Firebase Cloud Messaging (FCM) real-time push notifications",
+      "Managed and directed the complete design and copy strategy for the company's official corporate website using AI-driven workflows",
+      "Participated in client acquisition by pitching the transport booking platform directly to regional transport operators, driving product adoption",
+      "Built multi-role access control (Super Admin, Supervisor, Booking Agent, Driver, Inspector) with comprehensive permission systems",
       "Implemented bilingual (Arabic/English) localization with full RTL support across all products"
     ],
-    technologies: ["Flutter", "Dart", "BLoC", "Dio", "GoRouter", "Firebase", "GitHub Actions", "CI/CD", "Linux VPS", "rsync", "PM2"]
+    technologies: ["Flutter", "Dart", "BLoC", "Dio", "GoRouter", "Firebase FCM", "GitHub Actions", "CI/CD", "Linux VPS", "SSH/rsync", "PM2", "QR Scanner", "Bluetooth Printer"]
   },
   {
     id: 1,
     company: "YES for Online Services",
     position: "Flutter Developer",
-    duration: "Nov 2023 - Oct 2024",
+    duration: "Nov 2023 – Oct 2024",
     startDate: "2023-11",
     endDate: "2024-10",
     current: false,
-    description: "Developed cross-platform Flutter apps for iOS, Android, and Windows. Created revenue-generating apps with strong testing and performance focus.",
+    type: "Hybrid",
+    description: "Developed cross-platform Flutter applications for iOS, Android, and Windows, including the Team Management app that unified employee operations across platforms and the iDBOOK marketplace applications released on Google Play.",
     responsibilities: [
-      "Developed multiple Flutter applications for iOS, Android, and Windows platforms",
-      "Implemented clean architecture principles for scalable app design",
-      "Collaborated with backend team on API integration",
-      "Increased team productivity by 30% through efficient code practices",
-      "Contributed to iDBOOK and Team Management applications"
+      "Developed cross-platform Flutter applications for iOS, Android, and Windows, including the Team Management app that unified employee operations across platforms",
+      "Built the iDBOOK and iDBOOK Agent mobile apps with advanced search, real-time updates, QR code-based payment activation, and role-based functionality",
+      "Developed the Team Management desktop & mobile app, improving team productivity by 30% across 20+ employees with real-time chat (Socket.IO), task tracking, and admin dashboards",
+      "Collaborated with cross-functional teams to ensure consistent UI/UX performance and code quality through rigorous testing and iteration",
+      "Implemented clean architecture principles and scalable state management for long-term maintainability"
     ],
-    technologies: ["Flutter", "Dart", "Firebase", "GetX", "Node.js"]
+    technologies: ["Flutter", "Dart", "Firebase", "GetX", "Provider", "Socket.IO", "Node.js", "Google Maps", "QR Code", "SQLite", "Hive"]
   },
   {
     id: 2,
     company: "Darrebni Company",
     position: "Flutter Trainee",
-    duration: "Mar 2023 - Nov 2023",
+    duration: "Mar 2023 – Nov 2023",
     startDate: "2023-03",
     endDate: "2023-11",
     current: false,
-    description: "Worked on team projects and final training app. Improved team efficiency by 30% through solid collaboration and clean code.",
+    type: "Onsite",
+    description: "Contributed to multiple collaborative mobile projects, enhancing teamwork, agile development, and communication skills. Built the Darrebni National exam preparation platform as a final training project.",
     responsibilities: [
-      "Completed comprehensive Flutter training program",
-      "Worked on collaborative team projects",
-      "Developed final training project with focus on clean architecture",
-      "Implemented state management solutions",
-      "Participated in code reviews and best practices discussions"
+      "Contributed to multiple collaborative mobile projects, enhancing teamwork, agile development, and communication skills",
+      "Actively participated in project planning, code reviews, and problem-solving sessions, leading to measurable improvements in delivery speed and efficiency",
+      "Applied Flutter Clean Architecture and state management techniques to build scalable training applications",
+      "Developed Darrebni National platform as a final project — a unified study resource for Syrian National Unified Exam preparation",
+      "Collaborated with another trainee to design, develop, and refine the platform, focusing on clean architecture, responsive UI, and smooth navigation"
     ],
-    technologies: ["Flutter", "Dart", "Firebase", "Clean Architecture"]
+    technologies: ["Flutter", "Dart", "Firebase", "Clean Architecture", "GetX", "Hive"]
   },
   {
     id: 3,
     company: "Japan Syria Friendship Association",
     position: "Flutter Trainee",
-    duration: "Oct 2022 - Nov 2022",
+    duration: "Oct 2022 – Nov 2022",
     startDate: "2022-10",
     endDate: "2022-11",
     current: false,
-    description: "Completed intensive one-month training in Flutter with focus on animations, advanced UI, and state management.",
+    type: "Onsite",
+    description: "Completed intensive Flutter mobile app development training, mastering advanced UI, animations, and state management under mentorship.",
     responsibilities: [
-      "Completed intensive one-month Flutter training program",
-      "Learned advanced animations and UI techniques",
-      "Implemented complex state management patterns",
-      "Worked on practical Flutter projects",
-      "Understood performance optimization techniques"
+      "Completed intensive Flutter mobile app development training, mastering advanced UI, animations, and state management",
+      "Collaborated closely with mentors to refine code performance, structure, and best practices in production-level applications",
+      "Built practical Flutter projects applying learned concepts in real-world scenarios"
     ],
-    technologies: ["Flutter", "Dart", "Animations", "State Management"]
+    technologies: ["Flutter", "Dart", "Animations", "State Management", "UI/UX"]
   },
   {
     id: 4,
     company: "Freelance",
     position: "Flutter Developer",
-    duration: "2022 - Present",
+    duration: "2022 – Present",
     startDate: "2022-01",
     endDate: null,
     current: true,
-    description: "Delivered cross-platform Flutter applications with a 90% client satisfaction rate, implementing optimized UIs and high performance.",
+    type: "Remote",
+    description: "Delivering cross-platform Flutter applications for various clients with a 90% success rate, implementing innovative user interfaces, optimized performance, and customized solutions.",
     responsibilities: [
-      "Develop custom Flutter applications for various clients",
-      "Design and implement scalable architectures",
-      "Optimize app performance and user experience",
-      "Maintain 90% client satisfaction rate",
-      "Handle full project lifecycle from planning to deployment",
-      "Provide technical support and maintenance"
+      "Implemented innovative user interfaces and optimized application performance based on client requirements with a success rate of 90%",
+      "Provided customized solutions and achieved outstanding results in collaboration with clients",
+      "Handle full project lifecycle from requirements analysis and architecture design to development, testing, and deployment",
+      "Built applications spanning e-commerce, food ordering, health tracking, and community platforms"
     ],
-    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Various APIs"]
+    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "BLoC", "GetX", "Clean Architecture", "Various APIs"]
   }
 ];

@@ -1,12 +1,12 @@
 export const personalInfo = {
-  name: "Eng Laith Alskaf",
+  name: "Laith Alskaf",
   firstName: "Laith",
   lastName: "Alskaf",
-  title: "Software Engineer & AI-Driven Developer",
-  role: "Full Stack Mobile Developer (Flutter & Node.js)",
-  subtitle: "Crafting scalable, intelligent apps powered by modern AI workflows",
+  title: "Software Engineer",
+  role: "Cross-Platform & Backend Engineer • AI-Augmented Product Builder",
+  subtitle: "Building production-grade software products that solve real-world problems through modern engineering, clean architecture, and AI-powered workflows.",
 
-  bio: "Software Engineer specializing in Flutter and Node.js, leveraging AI‑enhanced workflows to build scalable, high‑performance applications. I embrace a 'Vibe Coding' mindset—combining creativity, precision, and intelligent tooling to solve complex challenges efficiently. With a belief that no technical barrier is insurmountable, I deliver robust solutions through modern engineering practices and AI‑augmented development.",
+  bio: "Dynamic and results-driven Software Engineer with over 4 years of experience specializing in high-performance cross-platform applications (Flutter, Dart) and backend systems (Node.js, TypeScript). Expert in leveraging advanced AI agents and intelligent developer workflows to accelerate delivery, design premium interfaces, and maintain clean, scalable architectures. Proven track record of designing robust offline-first caching systems, secure CI/CD pipelines, and enterprise-grade hardware integrations. A proactive engineer committed to merging traditional software engineering rigor with modern AI-augmented workflows to deliver high-impact products.",
   contact: {
     email: "laithalskaf@gmail.com",
     phone: "+963982055788",
@@ -35,8 +35,8 @@ export const personalInfo = {
   },
 
   image: {
-    url: "https://res.cloudinary.com/debuadvrz/image/upload/v1752869322/laith_bccr2p.jpg",
-    alt: "Eng. Laith Alskaf — Software Engineer",
+    url: "https://res.cloudinary.com/debuadvrz/image/upload/v1784315576/mine_mmpjb4.jpg",
+    alt: "Laith Alskaf — Software Engineer",
   },
 
   languages: [
