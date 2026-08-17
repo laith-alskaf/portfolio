@@ -22,14 +22,8 @@ export const personalInfo = {
     telegram: "https://t.me/963982055788",
   },
 
-  // 📄 CV والملفات
   cv: {
-    // غيّر الرابط إلى رابط CV الخاص بك
-    // يمكنك استخدام:
-    // - Google Drive: https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
-    // - Cloudinary: https://res.cloudinary.com/your-cloud/raw/upload/v123/CV.pdf
-    // - أي رابط مباشر لملف PDF
-    url: "https://drive.usercontent.google.com/u/0/uc?id=1UHE4aLsXf9ZbTBIIfiFenHWlO7ojX0Uy&export=download", // 👈 غيّر هذا الرابط
+    url: "https://drive.usercontent.google.com/u/0/uc?id=1UHE4aLsXf9ZbTBIIfiFenHWlO7ojX0Uy&export=download",
     fileName: "Laith_Alskaf_CV.pdf",
     label: "Download CV",
   },

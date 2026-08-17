@@ -1398,8 +1398,7 @@ export const projects = [
       color: "blue",
     },
     links: {
-      liveDemo:
-        "https://play.google.com/store/apps/details?id=com.yesforonlineservices.idbook",
+      liveDemo: "",
       github: "",
       presentation: "",
       drive: "",

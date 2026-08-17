@@ -4,6 +4,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, Check, ChevronLeft, ChevronRight, ExternalLink, Github, FolderOpen, Layers, Users } from "lucide-react";
 import { projects } from "../data";
 
+const hasUsableImage = (url) => Boolean(url) && !url.includes("/api/placeholder/");
+
 function ProjectNotFound() {
   return (
     <main className="case-page case-page--empty">
@@ -21,7 +23,7 @@ export default function ProjectDetailPage() {
 
   if (!project) return <ProjectNotFound />;
 
-  const gallery = project.images?.gallery?.filter(Boolean) || [];
+  const gallery = project.images?.gallery?.filter(hasUsableImage) || [];
   const details = project.projectDetails || {};
   const duration = details.duration || {};
   const technologies = project.technologies || [];

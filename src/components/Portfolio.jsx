@@ -14,12 +14,13 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { personalInfo, projects, experiences, education, certificates } from "../data";
+import { personalInfo, projects, experiences, education, certificates, skills } from "../data";
 import SignalField from "./SignalField";
 
 const navigation = [
   { id: "work", label: "Selected work" },
   { id: "profile", label: "Engineering profile" },
+  { id: "skills", label: "Skills" },
   { id: "experience", label: "Build log" },
   { id: "credentials", label: "Credentials" },
   { id: "contact", label: "Contact" },
@@ -54,6 +55,14 @@ const focusAreas = [
   },
 ];
 
+function getSkillLevelLabel(level) {
+  if (level >= 90) return "Expert";
+  if (level >= 80) return "Advanced";
+  if (level >= 70) return "Proficient";
+  if (level >= 60) return "Working knowledge";
+  return "Foundation";
+}
+
 function SectionEyebrow({ index, children }) {
   return (
     <p className="section-eyebrow">
@@ -80,7 +89,7 @@ function ProjectModule({ project, index }) {
     >
       <a className="project-module__media" href={`/portfolio/project/${project.id}`} aria-label={`Open ${project.title} case study`}>
         <span className="project-module__number">0{index + 1}</span>
-        <div className="project-module__screen project-module__screen--back">
+        <div className="project-module__screen project-module__screen--back" aria-hidden="true">
           {images[1] && <img src={images[1]} alt="" loading="lazy" />}
         </div>
         <div className="project-module__screen project-module__screen--main">
@@ -117,6 +126,12 @@ export default function Portfolio() {
     () => selectedProjectIds.map((id) => projects.find((project) => project.id === id)).filter(Boolean),
     []
   );
+  const skillGroups = useMemo(() => skills.reduce((groups, skill) => {
+    const categorySkills = groups.get(skill.category) || [];
+    categorySkills.push(skill);
+    groups.set(skill.category, categorySkills);
+    return groups;
+  }, new Map()), []);
   const emailLink = `mailto:${personalInfo.contact.email}?subject=Product%20engineering%20conversation`;
 
   const closeMenu = () => setMenuOpen(false);
@@ -223,10 +238,40 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <section id="skills" className="signal-section signal-section--skills">
+        <div className="signal-shell">
+          <div className="section-heading section-heading--skills">
+            <div>
+              <SectionEyebrow index="03">Technical capability map</SectionEyebrow>
+              <h2>Tools chosen for<br /><em>real delivery.</em></h2>
+            </div>
+            <p>A focused map of the technologies, architecture practices and delivery tools used across the products in this portfolio.</p>
+          </div>
+          <div className="skills-matrix">
+            {Array.from(skillGroups.entries()).map(([category, categorySkills], groupIndex) => (
+              <article className="skill-group" key={category}>
+                <header className="skill-group__header"><span>{String(groupIndex + 1).padStart(2, "0")}</span><div><h3>{category}</h3><p>{categorySkills.length} {categorySkills.length === 1 ? "capability" : "capabilities"}</p></div></header>
+                <div className="skill-list">
+                  {categorySkills.map((skill) => (
+                    <div className="skill-record" key={skill.name}>
+                      <div className="skill-record__title"><h4>{skill.name}</h4><span>{getSkillLevelLabel(skill.level)}</span></div>
+                      <p>{skill.description}</p>
+                      <div className="skill-record__meter" role="progressbar" aria-label={`${skill.name} proficiency`} aria-valuemin="0" aria-valuemax="100" aria-valuenow={skill.level}>
+                        <i style={{ "--skill-strength": `${skill.level}%` }} /><b>{skill.level}%</b>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="experience" className="signal-section signal-section--experience">
         <div className="signal-shell experience-layout">
           <div className="section-heading">
-            <SectionEyebrow index="03">Build log</SectionEyebrow>
+            <SectionEyebrow index="04">Build log</SectionEyebrow>
             <h2>Growth through<br /><em>shipped work.</em></h2>
             <p className="section-heading__sidecopy">From training projects to enterprise transport and independent product work, every role adds another layer of product responsibility.</p>
           </div>
@@ -251,7 +296,7 @@ export default function Portfolio() {
         <div className="signal-shell">
           <div className="section-heading section-heading--credentials">
             <div>
-              <SectionEyebrow index="04">Academic foundation</SectionEyebrow>
+              <SectionEyebrow index="05">Academic foundation</SectionEyebrow>
               <h2>Learning that turns into<br /><em>delivery discipline.</em></h2>
             </div>
             <p>Formal software engineering education, reinforced by focused Flutter development training and professional recommendations.</p>
@@ -300,7 +345,7 @@ export default function Portfolio() {
       <section id="contact" className="signal-contact">
         <div className="signal-shell signal-contact__inner">
           <div>
-            <SectionEyebrow index="05">Contact terminal</SectionEyebrow>
+            <SectionEyebrow index="06">Contact terminal</SectionEyebrow>
             <h2>Have a system<br />worth <em>building?</em></h2>
             <p>For product opportunities, technical collaboration or a conversation about the next meaningful build, start with a direct message.</p>
           </div>
