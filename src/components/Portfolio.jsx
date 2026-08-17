@@ -3,22 +3,25 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowUpRight,
+  Award,
   Check,
   ChevronDown,
   Download,
+  GraduationCap,
   Github,
   Linkedin,
   Mail,
   Menu,
   X,
 } from "lucide-react";
-import { personalInfo, projects, experiences } from "../data";
+import { personalInfo, projects, experiences, education, certificates } from "../data";
 import SignalField from "./SignalField";
 
 const navigation = [
   { id: "work", label: "Selected work" },
   { id: "profile", label: "Engineering profile" },
   { id: "experience", label: "Build log" },
+  { id: "credentials", label: "Credentials" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -244,10 +247,60 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <section id="credentials" className="signal-section signal-section--credentials">
+        <div className="signal-shell">
+          <div className="section-heading section-heading--credentials">
+            <div>
+              <SectionEyebrow index="04">Academic foundation</SectionEyebrow>
+              <h2>Learning that turns into<br /><em>delivery discipline.</em></h2>
+            </div>
+            <p>Formal software engineering education, reinforced by focused Flutter development training and professional recommendations.</p>
+          </div>
+          <div className="credentials-layout">
+            <div className="education-records">
+              {education.map((item) => (
+                <article className="education-record" key={`${item.degree}-${item.year}`}>
+                  <div className="education-record__icon"><GraduationCap size={23} /></div>
+                  <div className="education-record__meta"><span>{item.status}</span><span>{item.year}</span></div>
+                  <h3>{item.degree}</h3>
+                  <p className="education-record__institution">{item.institution}</p>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="certificate-list">
+              {certificates.map((certificate, index) => (
+                <motion.article
+                  key={certificate.id}
+                  className="certificate-card"
+                  initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.24 }}
+                  transition={{ duration: 0.42, delay: index * 0.08 }}
+                >
+                  <a className="certificate-card__image" href={certificate.image} target="_blank" rel="noreferrer" aria-label={`Open ${certificate.title} credential`}>
+                    <img src={certificate.image} alt={`${certificate.title} credential`} loading="lazy" />
+                    <span>{certificate.year}</span>
+                    <i><ArrowUpRight size={17} /></i>
+                  </a>
+                  <div className="certificate-card__body">
+                    <p className="certificate-card__category"><Award size={14} /> {certificate.category}</p>
+                    <h3>{certificate.title}</h3>
+                    <p className="certificate-card__issuer">{certificate.issuer}</p>
+                    <p className="certificate-card__description">{certificate.description}</p>
+                    <div className="certificate-card__footer"><span>Reference: {certificate.credential}</span><a href={certificate.image} target="_blank" rel="noreferrer">View credential <ArrowUpRight size={14} /></a></div>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="signal-contact">
         <div className="signal-shell signal-contact__inner">
           <div>
-            <SectionEyebrow index="04">Contact terminal</SectionEyebrow>
+            <SectionEyebrow index="05">Contact terminal</SectionEyebrow>
             <h2>Have a system<br />worth <em>building?</em></h2>
             <p>For product opportunities, technical collaboration or a conversation about the next meaningful build, start with a direct message.</p>
           </div>

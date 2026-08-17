@@ -431,3 +431,54 @@
 .archive-card__image b { position: absolute; z-index: 0; top: 50%; left: 50%; color: rgba(100,183,255,.34); font-family: 'Space Grotesk', sans-serif; font-size: 4.75rem; font-weight: 600; letter-spacing: -.1em; transform: translate(-50%, -50%); }
 .archive-card__image img { position: relative; z-index: 1; }
 .archive-card__image > span, .archive-card__image > i { z-index: 2; }
+
+
+.signal-section--credentials { background: #0b111c; }
+.section-heading--credentials { display: grid; grid-template-columns: 1.05fr .62fr; align-items: end; max-width: none; gap: 4rem; margin-bottom: 3.7rem; }
+.section-heading--credentials > p { max-width: 365px; margin: 0 0 .35rem auto; color: #9eadc2; font-size: .94rem; line-height: 1.7; }
+.credentials-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 1px; border: 1px solid rgba(158,173,194,.16); background: rgba(158,173,194,.16); }
+.education-records { display: grid; background: #0e1420; }
+.education-record { position: relative; display: flex; min-height: 100%; flex-direction: column; padding: clamp(1.5rem, 3vw, 2.3rem); overflow: hidden; background: radial-gradient(circle at 84% 18%, rgba(100,183,255,.14), transparent 30%), #0e1420; }
+.education-record::after { content: 'BSc'; position: absolute; right: -1.1rem; bottom: -1.5rem; color: rgba(100,183,255,.06); font-family: 'Space Grotesk', sans-serif; font-size: 7.25rem; font-weight: 600; letter-spacing: -.12em; }
+.education-record__icon { position: relative; z-index: 1; display: grid; width: 2.65rem; height: 2.65rem; place-items: center; border: 1px solid rgba(200,255,106,.45); border-radius: .62rem; color: #c8ff6a; background: rgba(200,255,106,.07); }
+.education-record__meta { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; color: #718199; font-family: 'DM Mono', monospace; font-size: .61rem; letter-spacing: .04em; text-transform: uppercase; }
+.education-record__meta span:first-child { color: #c8ff6a; }
+.education-record h3 { position: relative; z-index: 1; max-width: 440px; margin: .85rem 0 0; color: #f3f7ff; font-size: clamp(1.35rem, 2.1vw, 1.8rem); letter-spacing: -.05em; line-height: 1.08; }
+.education-record__institution { position: relative; z-index: 1; margin: .55rem 0 0 !important; color: #64b7ff !important; font-family: 'DM Mono', monospace; font-size: .67rem !important; line-height: 1.5 !important; }
+.education-record > p:last-child { position: relative; z-index: 1; max-width: 520px; margin: 1.05rem 0 0; color: #9eadc2; font-size: .86rem; line-height: 1.68; }
+.certificate-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(158,173,194,.16); }
+.certificate-card { display: flex; min-width: 0; flex-direction: column; background: #111a29; }
+.certificate-card__image { position: relative; display: block; height: 150px; overflow: hidden; border-bottom: 1px solid rgba(158,173,194,.15); background: linear-gradient(135deg,#18243a,#0e1420); }
+.certificate-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 360ms cubic-bezier(.23,1,.32,1); }
+.certificate-card__image:hover img { transform: scale(1.055); }
+.certificate-card__image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,13,20,.5), transparent 60%); pointer-events: none; }
+.certificate-card__image > span { position: absolute; z-index: 1; top: .65rem; left: .65rem; padding: .35rem .42rem; border-radius: .25rem; background: rgba(9,13,20,.77); color: #c8ff6a; font-family: 'DM Mono', monospace; font-size: .58rem; }
+.certificate-card__image > i { position: absolute; z-index: 1; right: .65rem; bottom: .65rem; display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: #c8ff6a; color: #090d14; font-style: normal; transform: translateY(.25rem); opacity: 0; transition: transform 180ms cubic-bezier(.23,1,.32,1), opacity 180ms cubic-bezier(.23,1,.32,1); }
+.certificate-card__image:hover > i, .certificate-card__image:focus-visible > i { transform: translateY(0); opacity: 1; }
+.certificate-card__body { display: flex; flex: 1; flex-direction: column; padding: 1.05rem; }
+.certificate-card__category { display: flex; align-items: center; gap: .35rem; margin: 0; color: #c8ff6a; font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .025em; text-transform: uppercase; }
+.certificate-card h3 { margin: .72rem 0 0; color: #f3f7ff; font-size: 1.05rem; letter-spacing: -.04em; line-height: 1.14; }
+.certificate-card__issuer { margin: .42rem 0 0; color: #64b7ff; font-family: 'DM Mono', monospace; font-size: .61rem; }
+.certificate-card__description { margin: .85rem 0 1.1rem; color: #9eadc2; font-size: .75rem; line-height: 1.62; }
+.certificate-card__footer { display: grid; gap: .65rem; margin-top: auto; padding-top: .8rem; border-top: 1px solid rgba(158,173,194,.14); }
+.certificate-card__footer > span { overflow: hidden; color: #718199; font-family: 'DM Mono', monospace; font-size: .53rem; letter-spacing: .02em; text-overflow: ellipsis; white-space: nowrap; }
+.certificate-card__footer a { display: inline-flex; align-items: center; gap: .3rem; color: #c8ff6a; font-family: 'DM Mono', monospace; font-size: .61rem; text-decoration: none; }
+.certificate-card__footer a:hover { color: #dcff9d; }
+
+@media (max-width: 980px) {
+  .section-heading--credentials { grid-template-columns: 1fr; gap: 2.4rem; }
+  .section-heading--credentials > p { margin: 0; }
+  .credentials-layout { grid-template-columns: 1fr; }
+  .education-record { min-height: 300px; }
+}
+@media (max-width: 720px) {
+  .certificate-list { grid-template-columns: 1fr; gap: 1px; }
+  .certificate-card { display: grid; grid-template-columns: 132px 1fr; }
+  .certificate-card__image { height: auto; min-height: 100%; border-right: 1px solid rgba(158,173,194,.15); border-bottom: 0; }
+  .certificate-card__image > i { transform: none; opacity: 1; }
+}
+@media (max-width: 470px) {
+  .certificate-card { display: flex; }
+  .certificate-card__image { height: 170px; min-height: 0; border-right: 0; border-bottom: 1px solid rgba(158,173,194,.15); }
+  .education-record__meta { margin-top: 1.75rem; }
+}
