@@ -7,14 +7,22 @@ const nodes = [
   { id: "delivery", x: 27, y: 75, label: "DELIVERY" },
 ];
 
-export default function SignalField() {
+export default function SignalField({ image }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="signal-field" aria-hidden="true">
-      <div className="signal-field__halo signal-field__halo--one" />
-      <div className="signal-field__halo signal-field__halo--two" />
-      <svg viewBox="0 0 100 100" className="signal-field__svg" role="presentation">
+    <div className="signal-field">
+      <div className="signal-field__halo signal-field__halo--one" aria-hidden="true" />
+      <div className="signal-field__halo signal-field__halo--two" aria-hidden="true" />
+      <figure className="signal-field__portrait">
+        {image?.url && <img src={image.url} alt={image.alt || "Laith Alskaf"} fetchPriority="high" />}
+        <div className="signal-field__portrait-wash" aria-hidden="true" />
+        <figcaption>
+          <span>LAITH ALSKAF</span>
+          <span>ENGINEER / PRODUCT SYSTEMS</span>
+        </figcaption>
+      </figure>
+      <svg viewBox="0 0 100 100" className="signal-field__svg" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="signal-line" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#c8ff6a" />
@@ -36,9 +44,7 @@ export default function SignalField() {
               style={{ transformOrigin: `${node.x}px ${node.y}px` }}
             />
             <circle cx={node.x} cy={node.y} r="3.1" className="signal-field__node" />
-            <text x={node.x} y={node.y + 11} textAnchor="middle" className="signal-field__label">
-              {node.label}
-            </text>
+            <text x={node.x} y={node.y + 11} textAnchor="middle" className="signal-field__label">{node.label}</text>
           </g>
         ))}
         {!shouldReduceMotion && (
@@ -52,9 +58,9 @@ export default function SignalField() {
           />
         )}
       </svg>
-      <div className="signal-field__terminal">
-        <span>SYS / LA-01</span>
-        <span className="signal-field__terminal-status"><i /> ONLINE</span>
+      <div className="signal-field__terminal" aria-label="Profile status">
+        <span>PROFILE / LA-01</span>
+        <span className="signal-field__terminal-status"><i /> SYSTEMS ONLINE</span>
       </div>
     </div>
   );

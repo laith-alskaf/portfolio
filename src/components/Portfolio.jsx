@@ -181,7 +181,7 @@ export default function Portfolio() {
               <div><strong>AR<span>/</span>EN</strong><p>bilingual product<br />delivery experience</p></div>
             </div>
           </motion.div>
-          <SignalField />
+          <SignalField image={personalInfo.image} />
         </div>
         <a className="hero-scroll" href="#work" aria-label="Scroll to selected work"><span>Scroll to signal</span><ChevronDown size={17} /></a>
       </div>
