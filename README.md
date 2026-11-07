@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Laith Alskaf — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**One site, two ways to read it.**
+Every project is told twice: once in plain words for anyone, and once with the engineering for people who build software. A switch in the header flips the whole site between the two, and it changes the look too: warm paper for everyone, a blueprint for engineers. Arabic (RTL) and English are both first-class.
 
-## Available Scripts
+🔗 **Live:** <https://laith-alskaf.github.io/portfolio/>
 
-In the project directory, you can run:
+> نسخة عربية مختصرة في آخر الملف · [Arabic summary below](#بالعربية)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Why it is built this way
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A portfolio has two very different readers: someone who has never written code and wants to know *"can this person solve my problem?"*, and an engineer who wants to know *"how does it actually work?"*. Most portfolios serve one and lose the other.
 
-### `npm test`
+| | **Everyone** (default) | **Engineers** |
+| --- | --- | --- |
+| Hero | What I do, in one sentence | Stack and approach |
+| Project page | Who it is for → the situation → what I built → what came out of it | Stack, real decisions and hard parts, full feature inventory |
+| "What I build" | Plain explanation | Technologies, mapped to proof projects |
+| Look | Warm paper, editorial serif, vermilion | Navy blueprint grid, mono labels, cyan |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Content rule: **only facts that exist.** No invented metrics. Where a number appears (23+ modules, 30% productivity for 20+ employees), it comes from the original project record.
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Bilingual **Arabic / English** with automatic RTL, written with CSS logical properties
+- **Reading modes** (Everyone / Engineers), remembered between visits
+- **16 case files**, filterable, each with its own page and screenshots
+- A **"Open it yourself"** strip linking to every project that has a public page
+- A **contact composer**: pick why you're writing and a polite first message is drafted; send it by WhatsApp or email, edit it first if you like
+- Hash routing (`#/p/musafer`), so shared links and refreshes never 404 on GitHub Pages
+- Accessible by default: semantic landmarks, skip link, visible focus, `prefers-reduced-motion`, print styles
+- No UI framework and no animation library: **React + Vite + one CSS file**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+index.html                 # SEO, Open Graph, fonts, structured data
+public/                    # favicon.svg, og.png (social preview)
+src/
+  main.jsx · App.jsx       # entry and page shell
+  styles.css               # the whole design system (tokens → components)
+  lib/
+    prefs.jsx              # language + reading-mode context (persisted)
+    router.js              # tiny hash router
+    format.js              # dates (Latin digits in Arabic too), WhatsApp/mail links
+  content/
+    ui.js                  # interface strings, EN + AR
+    profile.js             # contact, offers, process, journey, education, contact starters
+    projectMeta.js         # facts per project: links, images, stack, feature inventory
+    projectText.js         # narrative per project, EN + AR (plain story + engineering notes)
+    projects.js            # joins meta + text, helpers
+  components/              # Header, Hero, Work, ProjectCard, ProjectPage, Offers, Journey, Contact, Footer
+```
 
-### `npm run eject`
+## Run it
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+npm run dev        # http://localhost:5173/portfolio/
+npm run build      # outputs to dist/
+npm run preview    # serve the production build locally
+npm run deploy     # build + publish dist/ to the gh-pages branch
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Requires Node 18+.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Adding or editing a project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Add its facts to `src/content/projectMeta.js` (`id`, `kind`, dates, `team`, `stack`, `features`, `cover`, `gallery`, `links`).
+2. Add its story to `src/content/projectText.js` under the same `id`, in **both** `en` and `ar`:
+   `name`, `tagline`, `who`, `problem`, `built`, `result`, `role`, and `notes` (the engineering decisions).
+3. Projects appear in the order of `projectMeta.js`. `kind` is one of `apps`, `systems`, `web`, `backend`, `ai`.
 
-## Learn More
+To change contact details, journey or the "What I build" cards, edit `src/content/profile.js`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Design notes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Tokens first.** All colour lives in CSS variables on `:root`; `[data-mode="engineer"]` only overrides them, so a new component gets both looks for free.
+- **Direction-safe.** Margins, padding and positions use logical properties (`inline-start`, `inset-inline-end`…). Arrow icons flip under `[dir="rtl"]`.
+- **Technical terms stay Latin** inside Arabic text (Flutter, BLoC, CI/CD), the way Arabic-speaking engineers write them.
+- **Fonts:** Fraunces (English display), IBM Plex Sans Arabic (Arabic + UI), JetBrains Mono (labels), loaded from Google Fonts with `display=swap`.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## بالعربية
 
-### Analyzing the Bundle Size
+**موقع واحد بطريقتين للقراءة.** كل مشروع يُروى مرتين: بكلمات بسيطة لأي شخص، وبالتفاصيل الهندسية لمن يعمل في البرمجة. مفتاح في أعلى الصفحة يبدّل الموقع كله بين «للجميع» (ورق دافئ) و«للمهندسين» (مخطط هندسي). العربية والإنجليزية مدعومتان بالكامل مع اتجاه RTL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **التشغيل:** `npm install` ثم `npm run dev`
+- **النشر:** `npm run deploy` (ينشر مجلد `dist/` على فرع `gh-pages`)
+- **إضافة مشروع:** أضف بياناته في `projectMeta.js` وقصته بالعربية والإنجليزية في `projectText.js`
+- **قاعدة المحتوى:** حقائق موجودة فقط، بلا أرقام مخترعة
