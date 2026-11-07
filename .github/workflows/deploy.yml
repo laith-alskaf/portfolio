@@ -35,5 +35,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx gh-pages -d dist \
-            -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+            -u "github-actions <41898282+github-actions[bot]@users.noreply.github.com>" \
             -r "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
