@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import { PrefsProvider, usePrefs } from "./lib/prefs.jsx";
-import { HOME_HREF, scrollToSection, useRoute } from "./lib/router.js";
+import { HOME_HREF, RouteContext, navigate, scrollToSection, useRoute, useRouteState } from "./lib/router.js";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import Work from "./components/Work.jsx";
@@ -39,7 +39,7 @@ function Shell() {
     (id) => {
       if (route.name !== "home") {
         pending.current = id;
-        window.location.hash = HOME_HREF;
+        navigate(HOME_HREF);
         return;
       }
       if (id === "top") window.scrollTo({ top: 0, behavior: "smooth" });
@@ -72,10 +72,14 @@ function Shell() {
   );
 }
 
-export default function App() {
+// `initialPath` is only passed by the build-time pre-renderer; in the browser the route follows the URL.
+export default function App({ initialPath }) {
+  const route = useRouteState(initialPath);
   return (
     <PrefsProvider>
-      <Shell />
+      <RouteContext.Provider value={route}>
+        <Shell />
+      </RouteContext.Provider>
     </PrefsProvider>
   );
 }

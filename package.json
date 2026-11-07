@@ -1,15 +1,16 @@
 {
   "name": "portfolio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "description": "Laith Alskaf — portfolio. One site, two ways to read it: plain language for everyone, technical depth for engineers. Arabic and English.",
   "homepage": "https://laith-alskaf.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "verify": "node scripts/verify-dist.mjs",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && npm run verify",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
