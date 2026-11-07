@@ -21,3 +21,6 @@ pnpm-debug.log*
 .idea/
 .vscode/
 .DS_Store
+
+# SSR bundle used only while pre-rendering
+dist-ssr/
