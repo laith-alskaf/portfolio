@@ -1,0 +1,27 @@
+# Laith Alskaf
+
+> Software engineer in Damascus, Syria. Builds mobile apps (Flutter), business systems and AI tools, from first idea to live product. Works in English and Arabic.
+
+## Contact
+- Email: laithalskaf@gmail.com
+- GitHub: https://github.com/laith-alskaf
+- LinkedIn: https://www.linkedin.com/in/laith-alskaf-10a4b4339
+- Site: https://laith-alskaf.github.io/portfolio/
+
+## Projects
+- [Musafer / مسافر](https://laith-alskaf.github.io/portfolio/p/musafer/): Book an intercity bus seat from your phone. Live: https://www.musafer.app/
+- [Masar / مسار](https://laith-alskaf.github.io/portfolio/p/masar/): One control room for a bus company. Live: https://masar.admda.online/
+- [Neighborhood Guide / دليل الضاحية](https://laith-alskaf.github.io/portfolio/p/neighborhood-guide/): A pocket guide to everything in the neighbourhood — even without internet. Live: https://aldahiya.vercel.app/
+- [ReviewIQ / ReviewIQ](https://laith-alskaf.github.io/portfolio/p/reviewiq/): Reads your customers' reviews so you don't have to. Live: https://reputation-guardianapp.vercel.app/index.html
+- [Radar Al-Masrouf / رادار المصروف](https://laith-alskaf.github.io/portfolio/p/radar-almasrouf/): A private family-budget app that works fully offline.
+- [ATMTA Website / موقع ATMTA](https://laith-alskaf.github.io/portfolio/p/atmta-website/): The official bilingual website of a transport-technology company. Live: https://atmta.sy/
+- [Training Center Bot / بوت إدارة مركز تدريب](https://laith-alskaf.github.io/portfolio/p/training-center-bot/): A training center managed entirely from Telegram.
+- [Purchase Management System / نظام إدارة المشتريات](https://laith-alskaf.github.io/portfolio/p/purchase-management/): Purchase approvals that follow the company's chain of command.
+- [Team Management App / تطبيق إدارة الفريق](https://laith-alskaf.github.io/portfolio/p/team-management/): A team's tasks and chat in one app, on Windows and Android.
+- [iDBOOK / iDBOOK](https://laith-alskaf.github.io/portfolio/p/idbook/): A marketplace app on Google Play, with a live feed of ads, polls and posts.
+- [iDBOOK Agent / iDBOOK للوكلاء](https://laith-alskaf.github.io/portfolio/p/idbook-agent/): Activate a customer's plan by scanning a QR code.
+- [Car Service App / تطبيق خدمات السيارات](https://laith-alskaf.github.io/portfolio/p/car-service/): Book a parking spot or find a car-service center.
+- [Food Ordering App / تطبيق طلب الطعام](https://laith-alskaf.github.io/portfolio/p/food-ordering/): Order from nearby restaurants and follow your order live.
+- [Darrebni National / درّبني الوطني](https://laith-alskaf.github.io/portfolio/p/darrebni-national/): One place for Syrian students to prepare for the national exam.
+- [BetterMe / BetterMe](https://laith-alskaf.github.io/portfolio/p/betterme/): A friendly health app with an AI assistant.
+- [E-Commerce API / واجهة برمجة لمتجر إلكتروني](https://laith-alskaf.github.io/portfolio/p/ecommerce-api/): The engine behind an online shop. Live: https://ecommerce-backend-clean-architecture.vercel.app/api-docs/
