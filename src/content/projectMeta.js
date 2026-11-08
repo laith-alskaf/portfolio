@@ -97,7 +97,7 @@ export const projectMeta = [
       "https://res.cloudinary.com/debuadvrz/image/upload/v1780823456/create-trip_p9mf8a.jpg"
     ],
     "links": {
-      "live": "https://masar.admda.online/"
+      "live": "https://atmta.sy/products/masar"
     }
   },
   {
